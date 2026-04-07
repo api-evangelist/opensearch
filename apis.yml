@@ -7,8 +7,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-01-08'
 modified: '2026-03-16'
 url: >-
@@ -21,8 +20,7 @@ apis:
       The Security plugin REST API lets you programmatically create and manage
       users, roles, role mappings, action groups, and tenants.
     humanURL: https://opensearch.org/docs/latest/security/access-control/api/
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: https://opensearch.org/docs/latest/security/access-control/api/
