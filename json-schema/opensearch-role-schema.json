@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json",
+  "title": "OpenSearch Security Role",
+  "description": "Schema describing an OpenSearch Security plugin role definition.",
+  "type": "object",
+  "properties": {
+    "cluster_permissions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Cluster-level permissions or action group references."
+    },
+    "index_permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index_patterns": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "dls": {
+            "type": "string",
+            "description": "Document-level security query."
+          },
+          "fls": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Field-level security inclusions or exclusions."
+          },
+          "masked_fields": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "allowed_actions": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["index_patterns", "allowed_actions"]
+      }
+    },
+    "tenant_permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tenant_patterns": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "allowed_actions": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["tenant_patterns", "allowed_actions"]
+      }
+    },
+    "description": { "type": "string" },
+    "reserved": { "type": "boolean" },
+    "hidden": { "type": "boolean" },
+    "static": { "type": "boolean" }
+  }
+}

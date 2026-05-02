@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@vocab": "https://opensearch.org/ns#",
+    "schema": "https://schema.org/",
+    "Role": "https://opensearch.org/ns#Role",
+    "RoleMapping": "https://opensearch.org/ns#RoleMapping",
+    "ActionGroup": "https://opensearch.org/ns#ActionGroup",
+    "Tenant": "https://opensearch.org/ns#Tenant",
+    "InternalUser": "https://opensearch.org/ns#InternalUser",
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "cluster_permissions": "https://opensearch.org/ns#clusterPermissions",
+    "index_permissions": "https://opensearch.org/ns#indexPermissions",
+    "tenant_permissions": "https://opensearch.org/ns#tenantPermissions",
+    "index_patterns": "https://opensearch.org/ns#indexPatterns",
+    "tenant_patterns": "https://opensearch.org/ns#tenantPatterns",
+    "allowed_actions": "https://opensearch.org/ns#allowedActions",
+    "backend_roles": "https://opensearch.org/ns#backendRoles",
+    "users": "https://opensearch.org/ns#users",
+    "hosts": "https://opensearch.org/ns#hosts",
+    "dls": "https://opensearch.org/ns#documentLevelSecurity",
+    "fls": "https://opensearch.org/ns#fieldLevelSecurity",
+    "masked_fields": "https://opensearch.org/ns#maskedFields"
+  }
+}
