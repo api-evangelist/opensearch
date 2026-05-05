@@ -1,0 +1,13 @@
+{
+  "repo": "opensearch",
+  "feeds": [
+    {
+      "source": "https://opensearch.org/blog/",
+      "feed_url": "https://opensearch.org/feed/",
+      "saved": 10,
+      "title": "OpenSearch"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:33:01Z"
+}

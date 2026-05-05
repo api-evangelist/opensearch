@@ -1,0 +1,59 @@
+---
+title: "OpenSearch Software Foundation strengthens enterprise readiness with new long-term support versions"
+url: "https://opensearch.org/announcements/opensearch-software-foundation-strengthens-enterprise-readiness-with-new-long-term-support-versions/"
+date: "Wed, 15 Apr 2026 16:40:14 +0000"
+author: "Lisa Briggs"
+feed_url: "https://opensearch.org/feed/"
+---
+<div class="wpb_row vc_row-fluid vc_row" id="fws_69f3c59de9abb" style="padding-top: 0px; padding-bottom: 0px;"><div class="row-bg-wrap"><div class="inner-wrap row-bg-layer"><div class="row-bg viewport-desktop"></div></div></div><div class="row_col_wrap_12 col span_12 dark left">
+	<div class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone flex_gap_desktop_10px ">
+		<div class="vc_column-inner">
+			<div class="wpb_wrapper">
+				
+<div class="wpb_text_column wpb_content_element ">
+	<p><em><span style="font-weight: 400;">New program provides defined 18-month support lifecycles, SBOM-backed security compliance, and accredited vendor support</span></em></p>
+<p><b>Summary</b></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">At OpenSearchCon Europe, the OpenSearch Software Foundation announced a long-term support (LTS) program to deliver predictable support lifecycles, security standards, and vendor-neutral enterprise support.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">With initial support from BigData Boutique, Eliatra, and Resolve Technology, the program expands enterprise adoption by combining open source flexibility with operational reliability for AI-driven and mission-critical workloads.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">OpenSearch 3.6, the first designated LTS release, introduces the OpenSearch Observability Stack and AI-powered search tools including OpenSearch Launchpad and OpenSearch Relevance Agent.</span></li>
+</ul>
+<p><b>PRAGUE – OpenSearchCon Europe – 16 April 2026</b><span style="font-weight: 400;"> – The </span><a href="https://opensearch.org/"><span style="font-weight: 400;">OpenSearch Software Foundation</span></a><span style="font-weight: 400;">, the neutral home for the OpenSearch Project, today announced its long-term support (LTS) program, reinforcing the OpenSearch project’s capabilities as a production-ready open source platform for enterprise search, observability, analytics, and vector database workloads, as well as the community’s commitment to sustainable development. </span></p>
+<p><span style="font-weight: 400;">A recent </span><a href="https://www.linuxfoundation.org/press/new-linux-foundation-report-shows-active-open-source-contribution-delivers-2-5x-roi-while-passive-consumption-increases-costly-technical-debt"><span style="font-weight: 400;">Linux Foundation Research report</span></a><span style="font-weight: 400;"> found enterprises see a 2-5x return on investment from open source engagement. OpenSearch is already delivering enterprise-scale outcomes and value for organizations like Atlassian and Uber, and the LTS program expands value to members and users through accredited vendor support and long-term stability.</span></p>
+<p><span style="font-weight: 400;">The LTS program ensures defined support lifecycles, consistent security response expectations, and a vendor-neutral model for delivering enterprise-grade support without compromising open source principles. All LTS developments must be contributed upstream, ensuring improvements benefit the entire community, and maintaining a unified, open codebase.</span></p>
+<p><span style="font-weight: 400;">“This approach reflects growing enterprise demand for open source infrastructure that combines flexibility with reliability, particularly as organizations deploy AI-driven and mission-critical workloads,” said Bianca Lewis, executive director, OpenSearch Software Foundation. “Long-term support versions give enterprises predictable support, trusted security practices, and certified vendor options – making it easier to deploy and scale OpenSearch with confidence, without sacrificing the benefits of open source.”</span></p>
+<p><span style="font-weight: 400;">The first three LTS providers are BigData Boutique, Eliatra, and Resolve Technology. Benefits include:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Stability without lock-in:</b><span style="font-weight: 400;"> ensures at least one designated LTS release for each major version with a minimum of 18 months of support, beginning with OpenSearch 2.1.9 and 3.6.</span></li>
+<li style="font-weight: 400;"><b>Regulatory compliance and risk reduction:</b><span style="font-weight: 400;"> leverages scanning for all ~150 OpenSearch repositories to build software bills of materials (SBOM) and enable enterprises to demonstrate the provenance and security posture of OpenSearch deployments.</span></li>
+<li style="font-weight: 400;"><b>Consistent and transparent security posture:</b><span style="font-weight: 400;"> requires medium and high severity vulnerabilities to be addressed within 60 days of public disclosure, and introduces early security vulnerability notifications.</span></li>
+<li style="font-weight: 400;"><b>Accreditation and certifications</b><span style="font-weight: 400;">: vets and accredits vendors to deliver Foundation-approved commercial LTS offerings, ensuring enterprises can access professional support globally without being locked into any single provider.</span></li>
+</ul>
+<p><span style="font-weight: 400;">“The long-term support program addresses a long-standing enterprise need for access to reliable, production-grade support without compromising vendor neutrality,” said Partha Chakraborty, Senior Lead Analyst at ISG. “Through a formal accreditation model, the Foundation enables qualified providers to deliver Foundation-approved commercial long-term support offerings while ensuring all fixes and enhancements are contributed upstream for the benefit of the entire community.”</span></p>
+<p><span style="font-weight: 400;">OpenSearch 3.6, the first long-term support version, supports new, advanced AI-powered search capabilities, the </span><a href="https://opensearch.org/platform/observability-stack/"><span style="font-weight: 400;">OpenSearch Observability Stack</span></a><span style="font-weight: 400;">, and more. </span></p>
+<p><span style="font-weight: 400;">“As systems become more distributed and AI-driven, visibility and relevance can no longer exist in silos,” said Jan Erik Aase, Partner and Global Head at ISG. “OpenSearch 3.6 moves the industry forward by unifying observability, search and AI execution into a single, intelligent operating layer, enabling enterprises to innovate faster while maintaining control and understanding at scale.”</span></p>
+<p><span style="font-weight: 400;">Organizations interested in providing LTS services can join as members of the OpenSearch Software Foundation and apply for vendor accreditation through the Foundation’s certification program at </span><a href="https://opensearch.org/long-term-support"><span style="font-weight: 400;">opensearch.org/long-term-support</span></a><span style="font-weight: 400;">. To learn more about OpenSearch 3.6, see the </span><a href="https://opensearch.org/blog/introducing-opensearch-3-6/"><span style="font-weight: 400;">release blog</span></a><span style="font-weight: 400;">.</span></p>
+<p><b>Supporting Quotes</b></p>
+<p><span style="font-weight: 400;">“Enterprises running mission-critical and AI-driven workloads on OpenSearch need safety when running open source, something that is more than promises. They need proven operational excellence, fast and reliable CVE response, and continuous security patching they can trust. BigData Boutique has been doing exactly that for years, supporting many enterprise customers in production with our Enterprise Distribution of OpenSearch and true 24/7 expert support. The new LTS program is a major ecosystem milestone. It formalizes the standards we already uphold and puts the OpenSearch Software Foundation’s stamp behind them, reinforcing our position as the trusted partner for running OpenSearch securely, reliably, and at scale.”</span></p>
+<p><b>– Itamar Syn-Hershko, Founder of BigData Boutique and OpenSearch Ambassador</b><b></b></p>
+<p><span style="font-weight: 400;">“Open source only works when the community shows up for it. Becoming an OpenSearch Software Foundation-certified LTS provider is how we show up. Our customers run OpenSearch in production environments where a surprise CVE or an unsupported version is not an option – they need a partner who is accountable, not just available. This program gives that commitment a structure, and it gives our customers something they can take to their security teams with confidence. It also amplifies the long-term aspect of our mission to empower search teams through strategic consulting and hands-on implementation and support. We have been in this ecosystem long enough to know that vendor-neutral, community-backed infrastructure is the right bet. This is us putting our name behind that.”</span></p>
+<p><b>– David Bennett, Managing Director, Eliatra</b></p>
+<p><span style="font-weight: 400;">“Enterprise teams have been asking for the ability to point to a certified vendor, a documented SLA, and a clear upgrade path for OpenSearch, and the LTS program will be a deciding factor for organizations on the fence about making the switch. What drew us to the LTS program is that it does not ask you to trade open source freedom for enterprise stability. You get both. We are proud to be among the first vendors certified, and we are looking forward to helping more organizations make the move with confidence.”</span></p>
+<p><b>– Leo Wong, Founder, Resolve Technology</b></p>
+<p><b>About the OpenSearch Software Foundation</b></p>
+<p><span style="font-weight: 400;">The OpenSearch Software Foundation is a vendor-neutral community for search, analytics, observability, and vector database software. Hosted by the Linux Foundation and supported by premier members such as AWS, IBM, SAP and Uber, the OpenSearch Software Foundation works with community maintainers, developers, and member organizations to drive the continued growth of the OpenSearch project. With more than 1 billion software downloads since its inception and participation from thousands of contributors, the OpenSearch project and its community are transforming how information is managed and discovered. To learn more, please visit </span><a href="https://opensearch.org/foundation"><span style="font-weight: 400;">opensearch.org/foundation</span></a><span style="font-weight: 400;">. </span></p>
+<p><em><span style="font-weight: 400;">The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our </span><a href="https://www.linuxfoundation.org/legal/trademark-usage"><span style="font-weight: 400;">trademark</span></a><span style="font-weight: 400;"> usage page. Linux is a registered trademark of Linus Torvalds.</span></em></p>
+<p><b>Media Contact</b><br />
+<span style="font-weight: 400;">Kristi Piechnik</span><br />
+<span style="font-weight: 400;">The Linux Foundation</span><br />
+<a href="mailto:kpiechnik@linuxfoundation.org"><span style="font-weight: 400;">kpiechnik@linuxfoundation.org</span></a></p>
+</div>
+
+
+
+
+			</div> 
+		</div>
+	</div> 
+</div></div>
+<p>The post <a href="https://opensearch.org/announcements/opensearch-software-foundation-strengthens-enterprise-readiness-with-new-long-term-support-versions/">OpenSearch Software Foundation strengthens enterprise readiness with new long-term support versions</a> appeared first on <a href="https://opensearch.org">OpenSearch</a>.</p>
