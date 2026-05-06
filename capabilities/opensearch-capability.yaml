@@ -1,0 +1,1431 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenSearch Security Plugin REST API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users,
+    roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists,
+    distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api
+    on the OpenSearch cluster.
+  tags:
+  - Opensearch
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: opensearch
+    baseUri: https://localhost:9200
+    description: OpenSearch Security Plugin REST API HTTP API.
+    authentication:
+      type: basic
+      username: '{{OPENSEARCH_USERNAME}}'
+      password: '{{OPENSEARCH_PASSWORD}}'
+    resources:
+    - name: plugins-security-api-account
+      path: /_plugins/_security/api/account
+      operations:
+      - name: getaccount
+        method: GET
+        description: Get current user account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: changepassword
+        method: PUT
+        description: Change current user password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-internalusers
+      path: /_plugins/_security/api/internalusers
+      operations:
+      - name: listinternalusers
+        method: GET
+        description: List all internal users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-internalusers-username
+      path: /_plugins/_security/api/internalusers/{username}
+      operations:
+      - name: getinternaluser
+        method: GET
+        description: Get internal user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplaceinternaluser
+        method: PUT
+        description: Create or replace an internal user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteinternaluser
+        method: DELETE
+        description: Delete internal user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchinternaluser
+        method: PATCH
+        description: Patch internal user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-roles
+      path: /_plugins/_security/api/roles
+      operations:
+      - name: listroles
+        method: GET
+        description: List all roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-roles-name
+      path: /_plugins/_security/api/roles/{name}
+      operations:
+      - name: getrole
+        method: GET
+        description: Get role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplacerole
+        method: PUT
+        description: Create or replace a role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleterole
+        method: DELETE
+        description: Delete role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchrole
+        method: PATCH
+        description: Patch role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-rolesmapping
+      path: /_plugins/_security/api/rolesmapping
+      operations:
+      - name: listrolemappings
+        method: GET
+        description: List all role mappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-rolesmapping-name
+      path: /_plugins/_security/api/rolesmapping/{name}
+      operations:
+      - name: getrolemapping
+        method: GET
+        description: Get role mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplacerolemapping
+        method: PUT
+        description: Create or replace a role mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleterolemapping
+        method: DELETE
+        description: Delete role mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchrolemapping
+        method: PATCH
+        description: Patch role mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-actiongroups
+      path: /_plugins/_security/api/actiongroups
+      operations:
+      - name: listactiongroups
+        method: GET
+        description: List all action groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-actiongroups-name
+      path: /_plugins/_security/api/actiongroups/{name}
+      operations:
+      - name: getactiongroup
+        method: GET
+        description: Get action group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplaceactiongroup
+        method: PUT
+        description: Create or replace an action group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteactiongroup
+        method: DELETE
+        description: Delete action group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchactiongroup
+        method: PATCH
+        description: Patch action group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-tenants
+      path: /_plugins/_security/api/tenants
+      operations:
+      - name: listtenants
+        method: GET
+        description: List all tenants
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-tenants-name
+      path: /_plugins/_security/api/tenants/{name}
+      operations:
+      - name: gettenant
+        method: GET
+        description: Get tenant
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplacetenant
+        method: PUT
+        description: Create or replace a tenant
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletetenant
+        method: DELETE
+        description: Delete tenant
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchtenant
+        method: PATCH
+        description: Patch tenant
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-securityconfig
+      path: /_plugins/_security/api/securityconfig
+      operations:
+      - name: getsecurityconfig
+        method: GET
+        description: Get security configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchsecurityconfig
+        method: PATCH
+        description: Patch security configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-securityconfig-config
+      path: /_plugins/_security/api/securityconfig/config
+      operations:
+      - name: replacesecurityconfig
+        method: PUT
+        description: Replace security configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-audit
+      path: /_plugins/_security/api/audit
+      operations:
+      - name: getauditconfig
+        method: GET
+        description: Get audit log configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-audit-config
+      path: /_plugins/_security/api/audit/config
+      operations:
+      - name: replaceauditconfig
+        method: PUT
+        description: Replace audit log configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchauditconfig
+        method: PATCH
+        description: Patch audit log configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-allowlist
+      path: /_plugins/_security/api/allowlist
+      operations:
+      - name: getallowlist
+        method: GET
+        description: Get allowlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: replaceallowlist
+        method: PUT
+        description: Replace allowlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchallowlist
+        method: PATCH
+        description: Patch allowlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-nodesdn
+      path: /_plugins/_security/api/nodesdn
+      operations:
+      - name: listnodesdn
+        method: GET
+        description: List all node DN entries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-nodesdn-name
+      path: /_plugins/_security/api/nodesdn/{name}
+      operations:
+      - name: getnodesdn
+        method: GET
+        description: Get node DN entry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplacenodesdn
+        method: PUT
+        description: Create or replace node DN entry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletenodesdn
+        method: DELETE
+        description: Delete node DN entry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-ssl-certs
+      path: /_plugins/_security/api/ssl/certs
+      operations:
+      - name: getcertificates
+        method: GET
+        description: Get SSL certificates loaded by the cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-ssl-transport-reloadcerts
+      path: /_plugins/_security/api/ssl/transport/reloadcerts
+      operations:
+      - name: reloadtransportcerts
+        method: PUT
+        description: Reload transport-layer SSL certificates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-ssl-http-reloadcerts
+      path: /_plugins/_security/api/ssl/http/reloadcerts
+      operations:
+      - name: reloadhttpcerts
+        method: PUT
+        description: Reload HTTP-layer SSL certificates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-api-cache
+      path: /_plugins/_security/api/cache
+      operations:
+      - name: flushsecuritycache
+        method: DELETE
+        description: Flush security cache
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-health
+      path: /_plugins/_security/health
+      operations:
+      - name: securityhealth
+        method: GET
+        description: Security plugin health
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-authinfo
+      path: /_plugins/_security/authinfo
+      operations:
+      - name: authinfo
+        method: GET
+        description: Get authentication info for current request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plugins-security-sslinfo
+      path: /_plugins/_security/sslinfo
+      operations:
+      - name: sslinfo
+        method: GET
+        description: Get SSL handshake info for current request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: opensearch-rest
+    description: REST adapter for OpenSearch Security Plugin REST API.
+    resources:
+    - path: /_plugins/_security/api/account
+      name: getaccount
+      operations:
+      - method: GET
+        name: getaccount
+        description: Get current user account
+        call: opensearch.getaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/account
+      name: changepassword
+      operations:
+      - method: PUT
+        name: changepassword
+        description: Change current user password
+        call: opensearch.changepassword
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/internalusers
+      name: listinternalusers
+      operations:
+      - method: GET
+        name: listinternalusers
+        description: List all internal users
+        call: opensearch.listinternalusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/internalusers/{username}
+      name: getinternaluser
+      operations:
+      - method: GET
+        name: getinternaluser
+        description: Get internal user
+        call: opensearch.getinternaluser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/internalusers/{username}
+      name: createorreplaceinternaluser
+      operations:
+      - method: PUT
+        name: createorreplaceinternaluser
+        description: Create or replace an internal user
+        call: opensearch.createorreplaceinternaluser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/internalusers/{username}
+      name: deleteinternaluser
+      operations:
+      - method: DELETE
+        name: deleteinternaluser
+        description: Delete internal user
+        call: opensearch.deleteinternaluser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/internalusers/{username}
+      name: patchinternaluser
+      operations:
+      - method: PATCH
+        name: patchinternaluser
+        description: Patch internal user
+        call: opensearch.patchinternaluser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/roles
+      name: listroles
+      operations:
+      - method: GET
+        name: listroles
+        description: List all roles
+        call: opensearch.listroles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/roles/{name}
+      name: getrole
+      operations:
+      - method: GET
+        name: getrole
+        description: Get role
+        call: opensearch.getrole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/roles/{name}
+      name: createorreplacerole
+      operations:
+      - method: PUT
+        name: createorreplacerole
+        description: Create or replace a role
+        call: opensearch.createorreplacerole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/roles/{name}
+      name: deleterole
+      operations:
+      - method: DELETE
+        name: deleterole
+        description: Delete role
+        call: opensearch.deleterole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/roles/{name}
+      name: patchrole
+      operations:
+      - method: PATCH
+        name: patchrole
+        description: Patch role
+        call: opensearch.patchrole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/rolesmapping
+      name: listrolemappings
+      operations:
+      - method: GET
+        name: listrolemappings
+        description: List all role mappings
+        call: opensearch.listrolemappings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/rolesmapping/{name}
+      name: getrolemapping
+      operations:
+      - method: GET
+        name: getrolemapping
+        description: Get role mapping
+        call: opensearch.getrolemapping
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/rolesmapping/{name}
+      name: createorreplacerolemapping
+      operations:
+      - method: PUT
+        name: createorreplacerolemapping
+        description: Create or replace a role mapping
+        call: opensearch.createorreplacerolemapping
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/rolesmapping/{name}
+      name: deleterolemapping
+      operations:
+      - method: DELETE
+        name: deleterolemapping
+        description: Delete role mapping
+        call: opensearch.deleterolemapping
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/rolesmapping/{name}
+      name: patchrolemapping
+      operations:
+      - method: PATCH
+        name: patchrolemapping
+        description: Patch role mapping
+        call: opensearch.patchrolemapping
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/actiongroups
+      name: listactiongroups
+      operations:
+      - method: GET
+        name: listactiongroups
+        description: List all action groups
+        call: opensearch.listactiongroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/actiongroups/{name}
+      name: getactiongroup
+      operations:
+      - method: GET
+        name: getactiongroup
+        description: Get action group
+        call: opensearch.getactiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/actiongroups/{name}
+      name: createorreplaceactiongroup
+      operations:
+      - method: PUT
+        name: createorreplaceactiongroup
+        description: Create or replace an action group
+        call: opensearch.createorreplaceactiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/actiongroups/{name}
+      name: deleteactiongroup
+      operations:
+      - method: DELETE
+        name: deleteactiongroup
+        description: Delete action group
+        call: opensearch.deleteactiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/actiongroups/{name}
+      name: patchactiongroup
+      operations:
+      - method: PATCH
+        name: patchactiongroup
+        description: Patch action group
+        call: opensearch.patchactiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/tenants
+      name: listtenants
+      operations:
+      - method: GET
+        name: listtenants
+        description: List all tenants
+        call: opensearch.listtenants
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/tenants/{name}
+      name: gettenant
+      operations:
+      - method: GET
+        name: gettenant
+        description: Get tenant
+        call: opensearch.gettenant
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/tenants/{name}
+      name: createorreplacetenant
+      operations:
+      - method: PUT
+        name: createorreplacetenant
+        description: Create or replace a tenant
+        call: opensearch.createorreplacetenant
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/tenants/{name}
+      name: deletetenant
+      operations:
+      - method: DELETE
+        name: deletetenant
+        description: Delete tenant
+        call: opensearch.deletetenant
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/tenants/{name}
+      name: patchtenant
+      operations:
+      - method: PATCH
+        name: patchtenant
+        description: Patch tenant
+        call: opensearch.patchtenant
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/securityconfig
+      name: getsecurityconfig
+      operations:
+      - method: GET
+        name: getsecurityconfig
+        description: Get security configuration
+        call: opensearch.getsecurityconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/securityconfig
+      name: patchsecurityconfig
+      operations:
+      - method: PATCH
+        name: patchsecurityconfig
+        description: Patch security configuration
+        call: opensearch.patchsecurityconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/securityconfig/config
+      name: replacesecurityconfig
+      operations:
+      - method: PUT
+        name: replacesecurityconfig
+        description: Replace security configuration
+        call: opensearch.replacesecurityconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/audit
+      name: getauditconfig
+      operations:
+      - method: GET
+        name: getauditconfig
+        description: Get audit log configuration
+        call: opensearch.getauditconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/audit/config
+      name: replaceauditconfig
+      operations:
+      - method: PUT
+        name: replaceauditconfig
+        description: Replace audit log configuration
+        call: opensearch.replaceauditconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/audit/config
+      name: patchauditconfig
+      operations:
+      - method: PATCH
+        name: patchauditconfig
+        description: Patch audit log configuration
+        call: opensearch.patchauditconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/allowlist
+      name: getallowlist
+      operations:
+      - method: GET
+        name: getallowlist
+        description: Get allowlist
+        call: opensearch.getallowlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/allowlist
+      name: replaceallowlist
+      operations:
+      - method: PUT
+        name: replaceallowlist
+        description: Replace allowlist
+        call: opensearch.replaceallowlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/allowlist
+      name: patchallowlist
+      operations:
+      - method: PATCH
+        name: patchallowlist
+        description: Patch allowlist
+        call: opensearch.patchallowlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/nodesdn
+      name: listnodesdn
+      operations:
+      - method: GET
+        name: listnodesdn
+        description: List all node DN entries
+        call: opensearch.listnodesdn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/nodesdn/{name}
+      name: getnodesdn
+      operations:
+      - method: GET
+        name: getnodesdn
+        description: Get node DN entry
+        call: opensearch.getnodesdn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/nodesdn/{name}
+      name: createorreplacenodesdn
+      operations:
+      - method: PUT
+        name: createorreplacenodesdn
+        description: Create or replace node DN entry
+        call: opensearch.createorreplacenodesdn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/nodesdn/{name}
+      name: deletenodesdn
+      operations:
+      - method: DELETE
+        name: deletenodesdn
+        description: Delete node DN entry
+        call: opensearch.deletenodesdn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/ssl/certs
+      name: getcertificates
+      operations:
+      - method: GET
+        name: getcertificates
+        description: Get SSL certificates loaded by the cluster
+        call: opensearch.getcertificates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/ssl/transport/reloadcerts
+      name: reloadtransportcerts
+      operations:
+      - method: PUT
+        name: reloadtransportcerts
+        description: Reload transport-layer SSL certificates
+        call: opensearch.reloadtransportcerts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/ssl/http/reloadcerts
+      name: reloadhttpcerts
+      operations:
+      - method: PUT
+        name: reloadhttpcerts
+        description: Reload HTTP-layer SSL certificates
+        call: opensearch.reloadhttpcerts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/api/cache
+      name: flushsecuritycache
+      operations:
+      - method: DELETE
+        name: flushsecuritycache
+        description: Flush security cache
+        call: opensearch.flushsecuritycache
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/health
+      name: securityhealth
+      operations:
+      - method: GET
+        name: securityhealth
+        description: Security plugin health
+        call: opensearch.securityhealth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/authinfo
+      name: authinfo
+      operations:
+      - method: GET
+        name: authinfo
+        description: Get authentication info for current request
+        call: opensearch.authinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_plugins/_security/sslinfo
+      name: sslinfo
+      operations:
+      - method: GET
+        name: sslinfo
+        description: Get SSL handshake info for current request
+        call: opensearch.sslinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: opensearch-mcp
+    transport: http
+    description: MCP adapter for OpenSearch Security Plugin REST API for AI agent use.
+    tools:
+    - name: getaccount
+      description: Get current user account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: changepassword
+      description: Change current user password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.changepassword
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listinternalusers
+      description: List all internal users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.listinternalusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getinternaluser
+      description: Get internal user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getinternaluser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorreplaceinternaluser
+      description: Create or replace an internal user
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.createorreplaceinternaluser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteinternaluser
+      description: Delete internal user
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.deleteinternaluser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchinternaluser
+      description: Patch internal user
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchinternaluser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listroles
+      description: List all roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.listroles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getrole
+      description: Get role
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorreplacerole
+      description: Create or replace a role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.createorreplacerole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleterole
+      description: Delete role
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.deleterole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchrole
+      description: Patch role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrolemappings
+      description: List all role mappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.listrolemappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getrolemapping
+      description: Get role mapping
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getrolemapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorreplacerolemapping
+      description: Create or replace a role mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.createorreplacerolemapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleterolemapping
+      description: Delete role mapping
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.deleterolemapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchrolemapping
+      description: Patch role mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchrolemapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listactiongroups
+      description: List all action groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.listactiongroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getactiongroup
+      description: Get action group
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getactiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorreplaceactiongroup
+      description: Create or replace an action group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.createorreplaceactiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteactiongroup
+      description: Delete action group
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.deleteactiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchactiongroup
+      description: Patch action group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchactiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtenants
+      description: List all tenants
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.listtenants
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettenant
+      description: Get tenant
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.gettenant
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorreplacetenant
+      description: Create or replace a tenant
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.createorreplacetenant
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletetenant
+      description: Delete tenant
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.deletetenant
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchtenant
+      description: Patch tenant
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchtenant
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsecurityconfig
+      description: Get security configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getsecurityconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchsecurityconfig
+      description: Patch security configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchsecurityconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replacesecurityconfig
+      description: Replace security configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.replacesecurityconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getauditconfig
+      description: Get audit log configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getauditconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replaceauditconfig
+      description: Replace audit log configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.replaceauditconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchauditconfig
+      description: Patch audit log configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchauditconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getallowlist
+      description: Get allowlist
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getallowlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replaceallowlist
+      description: Replace allowlist
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.replaceallowlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchallowlist
+      description: Patch allowlist
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: opensearch.patchallowlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listnodesdn
+      description: List all node DN entries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.listnodesdn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getnodesdn
+      description: Get node DN entry
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getnodesdn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorreplacenodesdn
+      description: Create or replace node DN entry
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.createorreplacenodesdn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletenodesdn
+      description: Delete node DN entry
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.deletenodesdn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcertificates
+      description: Get SSL certificates loaded by the cluster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.getcertificates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reloadtransportcerts
+      description: Reload transport-layer SSL certificates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.reloadtransportcerts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reloadhttpcerts
+      description: Reload HTTP-layer SSL certificates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: opensearch.reloadhttpcerts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: flushsecuritycache
+      description: Flush security cache
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: opensearch.flushsecuritycache
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: securityhealth
+      description: Security plugin health
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.securityhealth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: authinfo
+      description: Get authentication info for current request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.authinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sslinfo
+      description: Get SSL handshake info for current request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opensearch.sslinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    OPENSEARCH_USERNAME: OPENSEARCH_USERNAME
+    OPENSEARCH_PASSWORD: OPENSEARCH_PASSWORD
