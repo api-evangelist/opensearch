@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://opensearch.org/blog/",
-      "feed_url": "https://opensearch.org/feed/",
-      "saved": 10,
-      "title": "OpenSearch"
+      "feed_url": "https://opensearch.org/blog/feed/",
+      "title": "Comments on: OpenSearch Project Blog",
+      "saved": 0
     }
   ],
   "post_count": 10,
-  "fetched": "2026-05-03T23:33:01Z"
+  "fetched": "2026-05-09T20:17:51Z"
 }
