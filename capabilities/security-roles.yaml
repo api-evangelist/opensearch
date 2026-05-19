@@ -1,0 +1,198 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenSearch Security Plugin REST API — Roles
+  description: 'OpenSearch Security Plugin REST API — Roles. 5 operations. Lead operation: List all roles. Self-contained
+    Naftiko capability covering one Opensearch business surface.'
+  tags:
+  - Opensearch
+  - Roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENSEARCH_API_KEY: OPENSEARCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: security-roles
+    baseUri: https://{cluster-host}:9200
+    description: OpenSearch Security Plugin REST API — Roles business capability. Self-contained, no shared references.
+    resources:
+    - name: _plugins-_security-api-roles
+      path: /_plugins/_security/api/roles
+      operations:
+      - name: listroles
+        method: GET
+        description: List all roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: _plugins-_security-api-roles-name
+      path: /_plugins/_security/api/roles/{name}
+      operations:
+      - name: getrole
+        method: GET
+        description: Get role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorreplacerole
+        method: PUT
+        description: Create or replace a role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleterole
+        method: DELETE
+        description: Delete role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchrole
+        method: PATCH
+        description: Patch role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.OPENSEARCH_USER}}'
+      password: '{{env.OPENSEARCH_PASS}}'
+  exposes:
+  - type: rest
+    namespace: security-roles-rest
+    port: 8080
+    description: REST adapter for OpenSearch Security Plugin REST API — Roles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/plugins/security/api/roles
+      name: plugins-security-api-roles
+      description: REST surface for _plugins-_security-api-roles.
+      operations:
+      - method: GET
+        name: listroles
+        description: List all roles
+        call: security-roles.listroles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/plugins/security/api/roles/{name}
+      name: plugins-security-api-roles-name
+      description: REST surface for _plugins-_security-api-roles-name.
+      operations:
+      - method: GET
+        name: getrole
+        description: Get role
+        call: security-roles.getrole
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: createorreplacerole
+        description: Create or replace a role
+        call: security-roles.createorreplacerole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleterole
+        description: Delete role
+        call: security-roles.deleterole
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchrole
+        description: Patch role
+        call: security-roles.patchrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: security-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenSearch Security Plugin REST API — Roles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-all-roles
+      description: List all roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: security-roles.listroles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-role
+      description: Get role
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: security-roles.getrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-replace-role
+      description: Create or replace a role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: security-roles.createorreplacerole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-role
+      description: Delete role
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: security-roles.deleterole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patch-role
+      description: Patch role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: security-roles.patchrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

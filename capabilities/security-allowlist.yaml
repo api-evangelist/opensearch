@@ -1,0 +1,141 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenSearch Security Plugin REST API — Allowlist
+  description: 'OpenSearch Security Plugin REST API — Allowlist. 3 operations. Lead operation: Get allowlist. Self-contained
+    Naftiko capability covering one Opensearch business surface.'
+  tags:
+  - Opensearch
+  - Allowlist
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENSEARCH_API_KEY: OPENSEARCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: security-allowlist
+    baseUri: https://{cluster-host}:9200
+    description: OpenSearch Security Plugin REST API — Allowlist business capability. Self-contained, no shared references.
+    resources:
+    - name: _plugins-_security-api-allowlist
+      path: /_plugins/_security/api/allowlist
+      operations:
+      - name: getallowlist
+        method: GET
+        description: Get allowlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: replaceallowlist
+        method: PUT
+        description: Replace allowlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchallowlist
+        method: PATCH
+        description: Patch allowlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.OPENSEARCH_USER}}'
+      password: '{{env.OPENSEARCH_PASS}}'
+  exposes:
+  - type: rest
+    namespace: security-allowlist-rest
+    port: 8080
+    description: REST adapter for OpenSearch Security Plugin REST API — Allowlist. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/plugins/security/api/allowlist
+      name: plugins-security-api-allowlist
+      description: REST surface for _plugins-_security-api-allowlist.
+      operations:
+      - method: GET
+        name: getallowlist
+        description: Get allowlist
+        call: security-allowlist.getallowlist
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: replaceallowlist
+        description: Replace allowlist
+        call: security-allowlist.replaceallowlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchallowlist
+        description: Patch allowlist
+        call: security-allowlist.patchallowlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: security-allowlist-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenSearch Security Plugin REST API — Allowlist. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: get-allowlist
+      description: Get allowlist
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: security-allowlist.getallowlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replace-allowlist
+      description: Replace allowlist
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: security-allowlist.replaceallowlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patch-allowlist
+      description: Patch allowlist
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: security-allowlist.patchallowlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

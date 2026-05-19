@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenSearch Security Plugin REST API — Cache
+  description: 'OpenSearch Security Plugin REST API — Cache. 1 operations. Lead operation: Flush security cache. Self-contained
+    Naftiko capability covering one Opensearch business surface.'
+  tags:
+  - Opensearch
+  - Cache
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENSEARCH_API_KEY: OPENSEARCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: security-cache
+    baseUri: https://{cluster-host}:9200
+    description: OpenSearch Security Plugin REST API — Cache business capability. Self-contained, no shared references.
+    resources:
+    - name: _plugins-_security-api-cache
+      path: /_plugins/_security/api/cache
+      operations:
+      - name: flushsecuritycache
+        method: DELETE
+        description: Flush security cache
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.OPENSEARCH_USER}}'
+      password: '{{env.OPENSEARCH_PASS}}'
+  exposes:
+  - type: rest
+    namespace: security-cache-rest
+    port: 8080
+    description: REST adapter for OpenSearch Security Plugin REST API — Cache. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/plugins/security/api/cache
+      name: plugins-security-api-cache
+      description: REST surface for _plugins-_security-api-cache.
+      operations:
+      - method: DELETE
+        name: flushsecuritycache
+        description: Flush security cache
+        call: security-cache.flushsecuritycache
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: security-cache-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenSearch Security Plugin REST API — Cache. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: flush-security-cache
+      description: Flush security cache
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: security-cache.flushsecuritycache
+      outputParameters:
+      - type: object
+        mapping: $.

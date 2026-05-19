@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenSearch Security Plugin REST API — Health
+  description: 'OpenSearch Security Plugin REST API — Health. 1 operations. Lead operation: Security plugin health. Self-contained
+    Naftiko capability covering one Opensearch business surface.'
+  tags:
+  - Opensearch
+  - Health
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENSEARCH_API_KEY: OPENSEARCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: security-health
+    baseUri: https://{cluster-host}:9200
+    description: OpenSearch Security Plugin REST API — Health business capability. Self-contained, no shared references.
+    resources:
+    - name: _plugins-_security-health
+      path: /_plugins/_security/health
+      operations:
+      - name: securityhealth
+        method: GET
+        description: Security plugin health
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.OPENSEARCH_USER}}'
+      password: '{{env.OPENSEARCH_PASS}}'
+  exposes:
+  - type: rest
+    namespace: security-health-rest
+    port: 8080
+    description: REST adapter for OpenSearch Security Plugin REST API — Health. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/plugins/security/health
+      name: plugins-security-health
+      description: REST surface for _plugins-_security-health.
+      operations:
+      - method: GET
+        name: securityhealth
+        description: Security plugin health
+        call: security-health.securityhealth
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: security-health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenSearch Security Plugin REST API — Health. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: security-plugin-health
+      description: Security plugin health
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: security-health.securityhealth
+      outputParameters:
+      - type: object
+        mapping: $.
