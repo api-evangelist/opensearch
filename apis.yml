@@ -20,7 +20,7 @@ tags:
   - Open Source
   - Security
 created: '2025-01-08'
-modified: '2026-04-28'
+modified: '2026-05-19'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -112,6 +112,12 @@ common:
   - url: https://opensearch.org/security
     name: Security Advisories
     type: Security
+  - name: MCP Server
+    url: https://github.com/opensearch-project/opensearch-mcp-server-py
+    type: MCPServer
+  - name: Agent Skills
+    url: https://github.com/opensearch-project/opensearch-agent-skills
+    type: AgentSkill
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
