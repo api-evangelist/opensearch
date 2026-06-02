@@ -2,12 +2,20 @@
   "repo": "opensearch",
   "feeds": [
     {
-      "source": "https://opensearch.org/blog/",
+      "source": "https://opensearch.org/blog/feed/",
       "feed_url": "https://opensearch.org/blog/feed/",
-      "title": "Comments on: OpenSearch Project Blog",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://opensearch.org/blog/",
+      "feed_url": "https://opensearch.org/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 11,
+  "fetched": "2026-06-01T23:35:02Z"
 }
