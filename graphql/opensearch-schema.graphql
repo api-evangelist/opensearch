@@ -1,0 +1,832 @@
+"""
+OpenSearch GraphQL Schema
+Covers the OpenSearch search, indexing, aggregation, cluster management,
+ingest, snapshot, security, and ML plugin REST APIs.
+Docs: https://opensearch.org/docs/latest/api-reference/
+"""
+
+# ─── Scalars ─────────────────────────────────────────────────────────────────
+
+scalar JSON
+scalar Long
+scalar DateTime
+
+# ─── Index management ────────────────────────────────────────────────────────
+
+type Index {
+  name: String!
+  status: String
+  health: String
+  details: IndexDetails
+  settings: IndexSettings
+  mappings: IndexMapping
+  aliases: [IndexAlias!]
+  stats: IndexStats
+  shards: [Shard!]
+  segments: [Segment!]
+}
+
+type IndexDetails {
+  uuid: String
+  creationDate: DateTime
+  numberOfShards: Int
+  numberOfReplicas: Int
+  providedName: String
+}
+
+type IndexMapping {
+  properties: JSON
+  dynamic: String
+  dynamicTemplates: [JSON!]
+}
+
+type IndexSettings {
+  numberOfShards: Int
+  numberOfReplicas: Int
+  refreshInterval: String
+  maxResultWindow: Int
+  codec: String
+  analysisSettings: JSON
+  sortField: String
+  sortOrder: String
+}
+
+type IndexAlias {
+  name: String!
+  indexName: String!
+  filter: JSON
+  routing: String
+  isWriteIndex: Boolean
+}
+
+type IndexStats {
+  docsCount: Long
+  docsDeleted: Long
+  storeSize: Long
+  primaryStoreSize: Long
+  indexingTotal: Long
+  searchQueryTotal: Long
+  searchFetchTotal: Long
+  mergeTotal: Long
+  refreshTotal: Long
+  flushTotal: Long
+}
+
+# ─── Shards & Segments ───────────────────────────────────────────────────────
+
+type Shard {
+  index: String!
+  shard: Int!
+  prirep: String
+  state: String
+  docs: Long
+  store: String
+  ip: String
+  node: String
+  details: ShardDetails
+  stats: ShardStats
+}
+
+type ShardDetails {
+  routingState: String
+  relocatingNode: String
+  allocationId: String
+  recoverySource: String
+  unassignedReason: String
+}
+
+type ShardStats {
+  docsCount: Long
+  docsDeleted: Long
+  storeSize: Long
+  indexingIndexTotal: Long
+  indexingDeleteTotal: Long
+  searchQueryTotal: Long
+  searchFetchTotal: Long
+  merges: Long
+  refreshes: Long
+  flushes: Long
+  translogOperations: Long
+}
+
+type Segment {
+  index: String!
+  shard: Int!
+  prirep: String
+  ip: String
+  segment: String!
+  details: SegmentDetails
+}
+
+type SegmentDetails {
+  generation: Int
+  docsCount: Long
+  docsDeleted: Long
+  size: Long
+  sizeMemory: Long
+  committed: Boolean
+  search: Boolean
+  version: String
+  compound: Boolean
+}
+
+# ─── Documents ───────────────────────────────────────────────────────────────
+
+type Document {
+  index: String!
+  id: String!
+  version: Long
+  seqNo: Long
+  primaryTerm: Long
+  found: Boolean
+  meta: DocumentMeta
+  source: DocumentSource
+}
+
+type DocumentMeta {
+  index: String!
+  id: String!
+  version: Long
+  seqNo: Long
+  primaryTerm: Long
+  routing: String
+}
+
+type DocumentSource {
+  fields: JSON
+}
+
+# ─── Search ──────────────────────────────────────────────────────────────────
+
+type SearchResult {
+  took: Int
+  timedOut: Boolean
+  shards: SearchShardStats
+  hits: SearchHits
+  aggregations: AggregationResult
+  suggest: JSON
+  profile: JSON
+}
+
+type SearchShardStats {
+  total: Int
+  successful: Int
+  skipped: Int
+  failed: Int
+}
+
+type SearchHits {
+  total: HitTotal
+  maxScore: Float
+  hits: [SearchHit!]!
+}
+
+type HitTotal {
+  value: Long!
+  relation: String!
+}
+
+type SearchHit {
+  index: String!
+  id: String!
+  score: Float
+  routing: String
+  version: Long
+  seqNo: Long
+  primaryTerm: Long
+  highlight: JSON
+  details: HitDetails
+  source: DocumentSource
+  fields: JSON
+  sort: [JSON!]
+  innerHits: JSON
+}
+
+type HitDetails {
+  explanation: JSON
+  matchedQueries: [String!]
+  nested: JSON
+}
+
+# ─── Query DSL ───────────────────────────────────────────────────────────────
+
+type SearchQuery {
+  query: QueryClause
+  size: Int
+  from: Int
+  sort: [JSON!]
+  source: JSON
+  aggs: JSON
+  highlight: JSON
+  suggest: JSON
+  scriptFields: JSON
+  docvalueFields: [String!]
+  minScore: Float
+  trackTotalHits: Boolean
+  searchAfter: [JSON!]
+  pit: PointInTimeRef
+}
+
+type PointInTimeRef {
+  id: String!
+  keepAlive: String
+}
+
+type QueryClause {
+  bool: BoolQuery
+  term: TermQuery
+  terms: JSON
+  match: MatchQuery
+  matchAll: JSON
+  matchNone: JSON
+  range: RangeQuery
+  geo: GeoQuery
+  nested: NestedQuery
+  knn: KNNQuery
+  neural: NeuralQuery
+  functionScore: JSON
+  script: JSON
+  percolate: JSON
+  moreLikeThis: JSON
+  hasChild: JSON
+  hasParent: JSON
+}
+
+type BoolQuery {
+  must: [QueryClause!]
+  should: [QueryClause!]
+  mustNot: [QueryClause!]
+  filter: [QueryClause!]
+  minimumShouldMatch: JSON
+  boost: Float
+}
+
+type TermQuery {
+  field: String!
+  value: JSON!
+  boost: Float
+  caseInsensitive: Boolean
+}
+
+type MatchQuery {
+  field: String!
+  query: String!
+  operator: String
+  fuzziness: String
+  analyzer: String
+  zeroTermsQuery: String
+  cutoffFrequency: Float
+  prefixLength: Int
+  maxExpansions: Int
+  boost: Float
+}
+
+type RangeQuery {
+  field: String!
+  gte: JSON
+  gt: JSON
+  lte: JSON
+  lt: JSON
+  format: String
+  relation: String
+  timeZone: String
+  boost: Float
+}
+
+type GeoQuery {
+  type: String!
+  field: String!
+  location: JSON
+  distance: String
+  unit: String
+  topLeft: JSON
+  bottomRight: JSON
+  boost: Float
+}
+
+type NestedQuery {
+  path: String!
+  query: QueryClause!
+  scoreMode: String
+  ignoreUnmapped: Boolean
+}
+
+type KNNQuery {
+  field: String!
+  vector: [Float!]!
+  k: Int
+  filter: QueryClause
+  method: JSON
+}
+
+type NeuralQuery {
+  field: String!
+  queryText: String!
+  modelId: String
+  k: Int
+  filter: QueryClause
+  neuralSparseQuery: Boolean
+}
+
+# ─── Aggregations ────────────────────────────────────────────────────────────
+
+type AggregationResult {
+  name: String!
+  type: String
+  buckets: [BucketResult!]
+  metric: MetricResult
+  raw: JSON
+}
+
+type BucketResult {
+  key: JSON
+  keyAsString: String
+  docCount: Long!
+  subAggregations: [AggregationResult!]
+  from: JSON
+  to: JSON
+}
+
+type MetricResult {
+  value: Float
+  valueAsString: String
+  values: JSON
+  counts: [Long!]
+}
+
+# ─── Ingest Pipelines ────────────────────────────────────────────────────────
+
+type Pipeline {
+  id: String!
+  description: String
+  details: PipelineDetails
+  ingest: Ingest
+}
+
+type PipelineDetails {
+  version: Int
+  processors: [JSON!]
+  onFailure: [JSON!]
+}
+
+type Ingest {
+  pipelines: [Pipeline!]
+  details: IngestDetails
+}
+
+type IngestDetails {
+  totalIndexingFailed: Long
+  totalPreprocessingTime: Long
+  pipelinesStats: JSON
+}
+
+# ─── Cluster & Nodes ─────────────────────────────────────────────────────────
+
+type Cluster {
+  name: String!
+  details: ClusterDetails
+  health: ClusterHealth
+  nodes: [NodeDetails!]
+  settings: JSON
+  stats: JSON
+}
+
+type ClusterDetails {
+  uuid: String
+  version: String
+  buildFlavor: String
+  buildType: String
+  luceneVersion: String
+  minimumWireCompatibilityVersion: String
+  minimumIndexCompatibilityVersion: String
+}
+
+type ClusterHealth {
+  status: String!
+  timedOut: Boolean
+  numberOfNodes: Int
+  numberOfDataNodes: Int
+  activeShards: Int
+  relocatingShards: Int
+  initializingShards: Int
+  unassignedShards: Int
+  activeShardsPercentAsNumber: Float
+  taskMaxWaitingTime: String
+  numberOfPendingTasks: Int
+  numberOfInFlightFetch: Int
+}
+
+type NodeDetails {
+  id: String!
+  name: String!
+  host: String
+  ip: String
+  version: String
+  roles: [String!]
+  attributes: JSON
+  os: JSON
+  jvm: JSON
+  threadPool: JSON
+  transport: JSON
+  http: JSON
+  storage: StorageInfo
+  indices: JSON
+}
+
+type StorageInfo {
+  totalInBytes: Long
+  freeInBytes: Long
+  availableInBytes: Long
+  diskUsagePercent: Float
+}
+
+# ─── Snapshots ────────────────────────────────────────────────────────────────
+
+type Snapshot {
+  repository: String!
+  snapshot: String!
+  details: SnapshotDetails
+}
+
+type SnapshotDetails {
+  uuid: String
+  versionId: Int
+  version: String
+  indices: [String!]
+  dataStreams: [String!]
+  state: String
+  reason: String
+  startTime: DateTime
+  endTime: DateTime
+  durationInMillis: Long
+  shards: SearchShardStats
+  failures: [JSON!]
+}
+
+# ─── Data Streams ────────────────────────────────────────────────────────────
+
+type DataStream {
+  name: String!
+  details: DataStreamDetails
+  indices: [Index!]
+}
+
+type DataStreamDetails {
+  timestampField: String
+  generation: Int
+  status: String
+  template: String
+  ilmPolicy: String
+  hidden: Boolean
+  system: Boolean
+  allowCustomRouting: Boolean
+  replicated: Boolean
+}
+
+# ─── Index Templates ─────────────────────────────────────────────────────────
+
+type Template {
+  name: String!
+  details: TemplateDetails
+  indexPatterns: [String!]
+  mappings: IndexMapping
+  settings: IndexSettings
+  aliases: [IndexAlias!]
+}
+
+type TemplateDetails {
+  version: Int
+  priority: Int
+  composedOf: [String!]
+  dataStream: JSON
+  meta: JSON
+  deprecated: Boolean
+}
+
+# ─── Security ────────────────────────────────────────────────────────────────
+
+type SecurityRole {
+  name: String!
+  reserved: Boolean
+  hidden: Boolean
+  description: String
+  clusterPermissions: [String!]
+  indexPermissions: [RolePermission!]
+  tenantPermissions: [JSON!]
+}
+
+type RolePermission {
+  indexPatterns: [String!]!
+  dls: String
+  fls: [String!]
+  maskedFields: [String!]
+  allowedActions: [String!]!
+}
+
+type User {
+  username: String!
+  reserved: Boolean
+  hidden: Boolean
+  backendRoles: [String!]
+  attributes: JSON
+  description: String
+  details: UserDetails
+}
+
+type UserDetails {
+  secureHash: String
+  roles: [SecurityRole!]
+  tenants: JSON
+  opendistroSecurityRoles: [String!]
+}
+
+type APIKey {
+  id: String!
+  name: String!
+  creation: Long
+  expiration: Long
+  invalidated: Boolean
+  username: String
+  realm: String
+  metadata: JSON
+}
+
+type Token {
+  accessToken: String!
+  expiresIn: Long
+  tokenType: String
+  refreshToken: String
+}
+
+# ─── Search Pipelines ────────────────────────────────────────────────────────
+
+type SearchPipeline {
+  id: String!
+  details: SearchPipelineDetails
+}
+
+type SearchPipelineDetails {
+  version: Int
+  description: String
+  requestProcessors: [JSON!]
+  responseProcessors: [JSON!]
+  phaseResultsProcessors: [JSON!]
+}
+
+# ─── ML Commons ──────────────────────────────────────────────────────────────
+
+type MLModel {
+  modelId: String!
+  name: String!
+  algorithm: String
+  version: String
+  modelFormat: String
+  modelState: String
+  modelContentHash: String
+  modelConfig: JSON
+  deployedNode: [String!]
+  totalChunks: Int
+  task: MLTask
+  connector: MLConnector
+}
+
+type MLTask {
+  taskId: String!
+  taskType: String
+  functionName: String
+  state: String
+  modelId: String
+  workerId: String
+  createTime: Long
+  lastUpdateTime: Long
+  error: String
+  response: JSON
+}
+
+type MLConnector {
+  connectorId: String!
+  name: String!
+  description: String
+  version: String
+  protocol: String
+  parameters: JSON
+  credential: JSON
+  actions: [JSON!]
+  backendRoles: [String!]
+  accessMode: String
+  createdTime: Long
+  lastUpdatedTime: Long
+}
+
+# ─── KNN ─────────────────────────────────────────────────────────────────────
+
+type KNNIndex {
+  indexName: String!
+  fieldName: String!
+  dimension: Int
+  spaceType: String
+  engine: String
+  efSearch: Int
+  efConstruction: Int
+  m: Int
+  totalIndexedVectors: Long
+  totalDeletedVectors: Long
+  totalVectorCount: Long
+  graphMemoryUsage: Long
+  indexingErrors: Long
+  queryErrors: Long
+}
+
+# ─── Query ───────────────────────────────────────────────────────────────────
+
+type Query {
+  # Index operations
+  index(name: String!): Index
+  indices(pattern: String, health: String, status: String): [Index!]!
+  indexStats(name: String!): IndexStats
+  indexMapping(name: String!): IndexMapping
+  indexSettings(name: String!): IndexSettings
+  indexAliases(name: String!): [IndexAlias!]!
+
+  # Shard & segment operations
+  shards(index: String): [Shard!]!
+  segments(index: String): [Segment!]!
+
+  # Document operations
+  document(index: String!, id: String!, routing: String): Document
+  mget(index: String, ids: [String!]!): [Document!]!
+
+  # Search operations
+  search(index: String, body: JSON): SearchResult
+  msearch(body: JSON!): [SearchResult!]!
+  explain(index: String!, id: String!, body: JSON!): JSON
+  fieldCaps(index: String, fields: [String!]!): JSON
+  rankEval(index: String, body: JSON!): JSON
+
+  # Aggregations
+  aggregations(index: String!, body: JSON!): AggregationResult
+
+  # Ingest
+  pipeline(id: String!): Pipeline
+  pipelines: [Pipeline!]!
+  ingestStats: Ingest
+
+  # Cluster
+  cluster: Cluster
+  clusterHealth(index: String, waitForStatus: String, timeout: String): ClusterHealth
+  clusterSettings: JSON
+  nodes(nodeId: [String!]): [NodeDetails!]!
+  nodeStats(nodeId: [String!], metric: [String!]): JSON
+
+  # Snapshots
+  snapshot(repository: String!, snapshot: String!): Snapshot
+  snapshots(repository: String!, verbose: Boolean): [Snapshot!]!
+  snapshotRepositories: [JSON!]!
+  snapshotStatus(repository: String, snapshot: String): [JSON!]!
+
+  # Data streams
+  dataStream(name: String!): DataStream
+  dataStreams(name: String): [DataStream!]!
+
+  # Templates
+  template(name: String!): Template
+  templates(name: String): [Template!]!
+  componentTemplate(name: String!): JSON
+  componentTemplates: [JSON!]!
+
+  # Security
+  role(name: String!): SecurityRole
+  roles: [SecurityRole!]!
+  user(username: String!): User
+  users: [User!]!
+  apiKey(id: String): APIKey
+  apiKeys(username: String): [APIKey!]!
+  actionGroup(name: String!): JSON
+  actionGroups: [JSON!]!
+  tenant(name: String!): JSON
+  tenants: [JSON!]!
+  roleMapping(role: String!): JSON
+  roleMappings: [JSON!]!
+
+  # Search pipelines
+  searchPipeline(id: String!): SearchPipeline
+  searchPipelines: [SearchPipeline!]!
+
+  # ML Commons
+  mlModel(modelId: String!): MLModel
+  mlModels(modelState: String, algorithm: String): [MLModel!]!
+  mlTask(taskId: String!): MLTask
+  mlConnector(connectorId: String!): MLConnector
+  mlConnectors: [MLConnector!]!
+
+  # KNN
+  knnIndex(indexName: String!, fieldName: String!): KNNIndex
+  knnIndices: [KNNIndex!]!
+  knnWarmup(index: [String!]!): JSON
+
+  # Cat APIs / convenience
+  catIndices(format: String): [JSON!]!
+  catShards(index: String): [JSON!]!
+  catNodes: [JSON!]!
+  catHealth: JSON
+  catAliases(name: String): [JSON!]!
+  catTemplates: [JSON!]!
+  catSegments(index: String): [JSON!]!
+  catCount(index: String): JSON
+  catPendingTasks: [JSON!]!
+}
+
+# ─── Mutation ────────────────────────────────────────────────────────────────
+
+type Mutation {
+  # Index management
+  createIndex(name: String!, settings: JSON, mappings: JSON, aliases: JSON): JSON
+  deleteIndex(name: String!): JSON
+  closeIndex(name: String!): JSON
+  openIndex(name: String!): JSON
+  cloneIndex(source: String!, target: String!, body: JSON): JSON
+  splitIndex(source: String!, target: String!, body: JSON): JSON
+  shrinkIndex(source: String!, target: String!, body: JSON): JSON
+  rolloverIndex(alias: String!, body: JSON): JSON
+  putMapping(index: String!, body: JSON!): JSON
+  putSettings(index: String!, body: JSON!): JSON
+  putAlias(index: String!, name: String!, body: JSON): JSON
+  deleteAlias(index: String!, name: String!): JSON
+  refreshIndex(index: String): JSON
+  flushIndex(index: String): JSON
+  forcemerge(index: String, maxNumSegments: Int): JSON
+  clearCache(index: String): JSON
+
+  # Document operations
+  indexDocument(index: String!, id: String, document: JSON!, routing: String, pipeline: String): JSON
+  updateDocument(index: String!, id: String!, body: JSON!, routing: String): JSON
+  deleteDocument(index: String!, id: String!, routing: String): JSON
+  bulk(index: String, body: String!): JSON
+  updateByQuery(index: String!, body: JSON!): JSON
+  deleteByQuery(index: String!, body: JSON!): JSON
+  reindex(body: JSON!): JSON
+
+  # Ingest pipelines
+  createPipeline(id: String!, body: JSON!): JSON
+  deletePipeline(id: String!): JSON
+  simulatePipeline(id: String, body: JSON!): JSON
+
+  # Cluster management
+  updateClusterSettings(body: JSON!): JSON
+  rerouteShards(body: JSON): JSON
+  allocationExplain(body: JSON): JSON
+  deleteVotingConfigExclusions: JSON
+  postVotingConfigExclusions(nodeNames: [String!], nodeIds: [String!]): JSON
+
+  # Snapshot management
+  createSnapshotRepository(repository: String!, body: JSON!): JSON
+  deleteSnapshotRepository(repository: String!): JSON
+  createSnapshot(repository: String!, snapshot: String!, body: JSON): JSON
+  deleteSnapshot(repository: String!, snapshot: String!): JSON
+  restoreSnapshot(repository: String!, snapshot: String!, body: JSON): JSON
+  cloneSnapshot(repository: String!, snapshot: String!, targetSnapshot: String!, body: JSON!): JSON
+
+  # Data streams
+  createDataStream(name: String!): JSON
+  deleteDataStream(name: String!): JSON
+  rolloverDataStream(alias: String!, body: JSON): JSON
+
+  # Templates
+  putTemplate(name: String!, body: JSON!): JSON
+  deleteTemplate(name: String!): JSON
+  putComponentTemplate(name: String!, body: JSON!): JSON
+  deleteComponentTemplate(name: String!): JSON
+
+  # Security
+  createUser(username: String!, body: JSON!): JSON
+  updateUser(username: String!, body: JSON!): JSON
+  deleteUser(username: String!): JSON
+  createRole(name: String!, body: JSON!): JSON
+  updateRole(name: String!, body: JSON!): JSON
+  deleteRole(name: String!): JSON
+  createRoleMapping(role: String!, body: JSON!): JSON
+  deleteRoleMapping(role: String!): JSON
+  createActionGroup(name: String!, body: JSON!): JSON
+  deleteActionGroup(name: String!): JSON
+  createTenant(name: String!, body: JSON!): JSON
+  deleteTenant(name: String!): JSON
+  createAPIKey(body: JSON!): APIKey
+  invalidateAPIKey(id: String!): JSON
+  changePassword(body: JSON!): JSON
+  patchSecurityConfig(body: JSON!): JSON
+
+  # Search pipelines
+  createSearchPipeline(id: String!, body: JSON!): JSON
+  deleteSearchPipeline(id: String!): JSON
+
+  # ML Commons
+  registerMLModel(body: JSON!): MLTask
+  deployMLModel(modelId: String!): MLTask
+  undeployMLModel(modelId: String!): MLTask
+  deleteMLModel(modelId: String!): JSON
+  predictMLModel(modelId: String!, body: JSON!): JSON
+  trainMLModel(body: JSON!): MLTask
+  createMLConnector(body: JSON!): MLConnector
+  updateMLConnector(connectorId: String!, body: JSON!): JSON
+  deleteMLConnector(connectorId: String!): JSON
+}

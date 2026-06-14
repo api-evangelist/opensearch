@@ -1,9 +1,11 @@
 aid: opensearch
 name: OpenSearch
-description: OpenSearch is the open source, community-driven search, analytics, and observability suite (forked from Elasticsearch
-  and Kibana) maintained under the Linux Foundation's OpenSearch Software Foundation. The platform exposes REST APIs across
-  the search engine, the OpenSearch Dashboards UI, and a set of plugins. The Security plugin REST API lets administrators
-  programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration,
+description: OpenSearch is the open source, community-driven search, analytics, and
+  observability suite (forked from Elasticsearch and Kibana) maintained under the
+  Linux Foundation's OpenSearch Software Foundation. The platform exposes REST APIs
+  across the search engine, the OpenSearch Dashboards UI, and a set of plugins. The
+  Security plugin REST API lets administrators programmatically create and manage
+  internal users, roles, role mappings, action groups, tenants, security configuration,
   audit log configuration, and SSL certificates.
 type: Index
 position: Consumer
@@ -22,9 +24,11 @@ specificationVersion: '0.19'
 apis:
 - aid: opensearch:opensearch-security-api
   name: OpenSearch Security Plugin REST API
-  description: The Security plugin REST API lets administrators programmatically create and manage internal users, roles,
-    role mappings, action groups, tenants, security configuration, audit log configuration, allowlists, node DN entries, and
-    SSL certificates. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster and require authentication.
+  description: The Security plugin REST API lets administrators programmatically create
+    and manage internal users, roles, role mappings, action groups, tenants, security
+    configuration, audit log configuration, allowlists, node DN entries, and SSL certificates.
+    Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster
+    and require authentication.
   humanURL: https://docs.opensearch.org/latest/security/access-control/api/
   baseURL: https://{cluster-host}:9200
   tags:
@@ -43,38 +47,13 @@ apis:
     url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: NaftikoCapability
-    url: capabilities/security-account.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-action-groups.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-allowlist.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-audit.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-cache.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-certificates.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-health.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-internal-users.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-nodes-dn.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-role-mappings.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-roles.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-ssl-info.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-security-config.yaml
-  - type: NaftikoCapability
-    url: capabilities/security-tenants.yaml
+  - url: graphql/opensearch-graphql.md
+    type: GraphQL
 - aid: opensearch:opensearch-search-api
   name: OpenSearch Search and Indexing REST API
-  description: The core OpenSearch REST API for indexing documents, performing search queries (full text, vector, hybrid),
-    aggregations, and managing indices, mappings, templates, aliases, and snapshots.
+  description: The core OpenSearch REST API for indexing documents, performing search
+    queries (full text, vector, hybrid), aggregations, and managing indices, mappings,
+    templates, aliases, and snapshots.
   humanURL: https://docs.opensearch.org/latest/api-reference/
   baseURL: https://{cluster-host}:9200
   tags:
@@ -137,6 +116,8 @@ common:
 - name: Agent Skills
   url: https://github.com/opensearch-project/opensearch-agent-skills
   type: AgentSkill
+- url: graphql/opensearch-graphql.md
+  type: GraphQL
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
