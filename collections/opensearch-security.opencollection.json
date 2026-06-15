@@ -1,0 +1,879 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current user account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/account"
+          },
+          "docs": "Returns information about the currently authenticated user."
+        },
+        {
+          "info": {
+            "name": "Change current user password",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change current user password"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Internal Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all internal users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers"
+          },
+          "docs": "List all internal users"
+        },
+        {
+          "info": {
+            "name": "Get internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get internal user"
+        },
+        {
+          "info": {
+            "name": "Create or replace an internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace an internal user"
+        },
+        {
+          "info": {
+            "name": "Patch internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch internal user"
+        },
+        {
+          "info": {
+            "name": "Delete internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete internal user"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/roles"
+          },
+          "docs": "List all roles"
+        },
+        {
+          "info": {
+            "name": "Get role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/roles/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get role"
+        },
+        {
+          "info": {
+            "name": "Create or replace a role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/roles/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace a role"
+        },
+        {
+          "info": {
+            "name": "Patch role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/roles/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch role"
+        },
+        {
+          "info": {
+            "name": "Delete role",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/roles/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete role"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Role Mappings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all role mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping"
+          },
+          "docs": "List all role mappings"
+        },
+        {
+          "info": {
+            "name": "Get role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get role mapping"
+        },
+        {
+          "info": {
+            "name": "Create or replace a role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace a role mapping"
+        },
+        {
+          "info": {
+            "name": "Patch role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch role mapping"
+        },
+        {
+          "info": {
+            "name": "Delete role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete role mapping"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Action Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all action groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/actiongroups"
+          },
+          "docs": "List all action groups"
+        },
+        {
+          "info": {
+            "name": "Get action group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/actiongroups/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get action group"
+        },
+        {
+          "info": {
+            "name": "Create or replace an action group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/actiongroups/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace an action group"
+        },
+        {
+          "info": {
+            "name": "Patch action group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/actiongroups/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch action group"
+        },
+        {
+          "info": {
+            "name": "Delete action group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/actiongroups/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete action group"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tenants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all tenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/tenants"
+          },
+          "docs": "List all tenants"
+        },
+        {
+          "info": {
+            "name": "Get tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/tenants/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get tenant"
+        },
+        {
+          "info": {
+            "name": "Create or replace a tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/tenants/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace a tenant"
+        },
+        {
+          "info": {
+            "name": "Patch tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/tenants/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch tenant"
+        },
+        {
+          "info": {
+            "name": "Delete tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/tenants/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete tenant"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Security Config",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get security configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/securityconfig"
+          },
+          "docs": "Get security configuration"
+        },
+        {
+          "info": {
+            "name": "Patch security configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/securityconfig",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch security configuration"
+        },
+        {
+          "info": {
+            "name": "Replace security configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/securityconfig/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace security configuration"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Audit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get audit log configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/audit"
+          },
+          "docs": "Get audit log configuration"
+        },
+        {
+          "info": {
+            "name": "Replace audit log configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/audit/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace audit log configuration"
+        },
+        {
+          "info": {
+            "name": "Patch audit log configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/audit/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch audit log configuration"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Allowlist",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get allowlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/allowlist"
+          },
+          "docs": "Get allowlist"
+        },
+        {
+          "info": {
+            "name": "Replace allowlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/allowlist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace allowlist"
+        },
+        {
+          "info": {
+            "name": "Patch allowlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/allowlist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch allowlist"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Nodes DN",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all node DN entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn"
+          },
+          "docs": "List all node DN entries"
+        },
+        {
+          "info": {
+            "name": "Get node DN entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get node DN entry"
+        },
+        {
+          "info": {
+            "name": "Create or replace node DN entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace node DN entry"
+        },
+        {
+          "info": {
+            "name": "Delete node DN entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete node DN entry"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Certificates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get SSL certificates loaded by the cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/ssl/certs"
+          },
+          "docs": "Get SSL certificates loaded by the cluster"
+        },
+        {
+          "info": {
+            "name": "Reload transport-layer SSL certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/ssl/transport/reloadcerts"
+          },
+          "docs": "Reload transport-layer SSL certificates"
+        },
+        {
+          "info": {
+            "name": "Reload HTTP-layer SSL certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/ssl/http/reloadcerts"
+          },
+          "docs": "Reload HTTP-layer SSL certificates"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cache",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Flush security cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/cache"
+          },
+          "docs": "Flush security cache"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Security plugin health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/health"
+          },
+          "docs": "Security plugin health"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SSL Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get authentication info for current request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/authinfo"
+          },
+          "docs": "Get authentication info for current request"
+        },
+        {
+          "info": {
+            "name": "Get SSL handshake info for current request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/sslinfo"
+          },
+          "docs": "Get SSL handshake info for current request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
