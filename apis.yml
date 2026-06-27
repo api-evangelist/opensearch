@@ -88,7 +88,7 @@ common:
   type: Community
 - url: https://forum.opensearch.org/
   name: Discussion Forum
-  type: Forum
+  type: Forums
 - url: https://opensearch.org/blog/
   name: Blog
   type: Blog
@@ -115,7 +115,7 @@ common:
   type: MCPServer
 - name: Agent Skills
   url: https://github.com/opensearch-project/opensearch-agent-skills
-  type: AgentSkill
+  type: AgentSkills
 - url: graphql/opensearch-graphql.md
   type: GraphQL
 maintainers:

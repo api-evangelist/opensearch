@@ -9,13 +9,20 @@
       "method": "feed"
     },
     {
+      "source": "https://opensearch.org/feed/",
+      "feed_url": "https://opensearch.org/feed/",
+      "title": "",
+      "saved": 2,
+      "method": "feed"
+    },
+    {
       "source": "https://opensearch.org/blog/",
       "feed_url": "https://opensearch.org/feed/",
       "title": "",
-      "saved": 5,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 17,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 20,
+  "fetched": "2026-06-27T12:03:07Z"
 }
