@@ -69,6 +69,10 @@ apis:
   - type: Reference
     url: https://docs.opensearch.org/latest/api-reference/search/
 common:
+- type: DomainSecurity
+  url: security/opensearch-domain-security.yml
+- type: Authentication
+  url: authentication/opensearch-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/opensearch-project
 - url: https://opensearch.org/

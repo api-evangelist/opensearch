@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/opensearch-security-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BasicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/opensearch-security-openapi.yml
