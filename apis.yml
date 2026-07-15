@@ -69,6 +69,8 @@ apis:
   - type: Reference
     url: https://docs.opensearch.org/latest/api-reference/search/
 common:
+- type: AgenticAccess
+  url: agentic-access/opensearch-agentic-access.yml
 - type: DomainSecurity
   url: security/opensearch-domain-security.yml
 - type: Authentication
