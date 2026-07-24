@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Role Mappings API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Role Mappings
+  description: Map users, backend roles, and hosts to security roles.
+paths:
+  /_plugins/_security/api/rolesmapping:
+    get:
+      operationId: listRoleMappings
+      summary: List all role mappings
+      tags:
+      - Role Mappings
+      responses:
+        '200':
+          description: All role mappings.
+  /_plugins/_security/api/rolesmapping/{name}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getRoleMapping
+      summary: Get role mapping
+      tags:
+      - Role Mappings
+      responses:
+        '200':
+          description: Role mapping definition.
+    put:
+      operationId: createOrReplaceRoleMapping
+      summary: Create or replace a role mapping
+      tags:
+      - Role Mappings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleMapping'
+      responses:
+        '200':
+          description: Role mapping created or updated.
+    delete:
+      operationId: deleteRoleMapping
+      summary: Delete role mapping
+      tags:
+      - Role Mappings
+      responses:
+        '200':
+          description: Role mapping deleted.
+    patch:
+      operationId: patchRoleMapping
+      summary: Patch role mapping
+      tags:
+      - Role Mappings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Role mapping patched.
+components:
+  schemas:
+    RoleMapping:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: string
+        backend_roles:
+          type: array
+          items:
+            type: string
+        hosts:
+          type: array
+          items:
+            type: string
+        and_backend_roles:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

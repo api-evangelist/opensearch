@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account SSL Info API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: SSL Info
+  description: Inspect SSL handshake information for the calling client.
+paths:
+  /_plugins/_security/authinfo:
+    get:
+      operationId: authInfo
+      summary: Get authentication info for current request
+      tags:
+      - SSL Info
+      responses:
+        '200':
+          description: Authentication info.
+  /_plugins/_security/sslinfo:
+    get:
+      operationId: sslInfo
+      summary: Get SSL handshake info for current request
+      tags:
+      - SSL Info
+      responses:
+        '200':
+          description: SSL info.
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

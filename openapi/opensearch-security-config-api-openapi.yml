@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Security Config API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Security Config
+  description: Inspect and update the running security configuration.
+paths:
+  /_plugins/_security/api/securityconfig:
+    get:
+      operationId: getSecurityConfig
+      summary: Get security configuration
+      tags:
+      - Security Config
+      responses:
+        '200':
+          description: Current security configuration.
+    patch:
+      operationId: patchSecurityConfig
+      summary: Patch security configuration
+      tags:
+      - Security Config
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Security configuration patched.
+  /_plugins/_security/api/securityconfig/config:
+    put:
+      operationId: replaceSecurityConfig
+      summary: Replace security configuration
+      tags:
+      - Security Config
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Security configuration replaced.
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

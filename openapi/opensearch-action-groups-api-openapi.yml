@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Action Groups API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Action Groups
+  description: Reusable groups of cluster and index permissions.
+paths:
+  /_plugins/_security/api/actiongroups:
+    get:
+      operationId: listActionGroups
+      summary: List all action groups
+      tags:
+      - Action Groups
+      responses:
+        '200':
+          description: All action groups.
+  /_plugins/_security/api/actiongroups/{name}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getActionGroup
+      summary: Get action group
+      tags:
+      - Action Groups
+      responses:
+        '200':
+          description: Action group definition.
+    put:
+      operationId: createOrReplaceActionGroup
+      summary: Create or replace an action group
+      tags:
+      - Action Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionGroup'
+      responses:
+        '200':
+          description: Action group created or updated.
+    delete:
+      operationId: deleteActionGroup
+      summary: Delete action group
+      tags:
+      - Action Groups
+      responses:
+        '200':
+          description: Action group deleted.
+    patch:
+      operationId: patchActionGroup
+      summary: Patch action group
+      tags:
+      - Action Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Action group patched.
+components:
+  schemas:
+    ActionGroup:
+      type: object
+      properties:
+        allowed_actions:
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+        description:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

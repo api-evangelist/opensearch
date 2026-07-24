@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Roles API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Roles
+  description: CRUD for security roles and their permissions.
+paths:
+  /_plugins/_security/api/roles:
+    get:
+      operationId: listRoles
+      summary: List all roles
+      tags:
+      - Roles
+      responses:
+        '200':
+          description: All roles.
+  /_plugins/_security/api/roles/{name}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getRole
+      summary: Get role
+      tags:
+      - Roles
+      responses:
+        '200':
+          description: Role definition.
+    put:
+      operationId: createOrReplaceRole
+      summary: Create or replace a role
+      tags:
+      - Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+      responses:
+        '200':
+          description: Role created or updated.
+    delete:
+      operationId: deleteRole
+      summary: Delete role
+      tags:
+      - Roles
+      responses:
+        '200':
+          description: Role deleted.
+    patch:
+      operationId: patchRole
+      summary: Patch role
+      tags:
+      - Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Role patched.
+components:
+  schemas:
+    Role:
+      type: object
+      properties:
+        cluster_permissions:
+          type: array
+          items:
+            type: string
+        index_permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              index_patterns:
+                type: array
+                items:
+                  type: string
+              dls:
+                type: string
+              fls:
+                type: array
+                items:
+                  type: string
+              masked_fields:
+                type: array
+                items:
+                  type: string
+              allowed_actions:
+                type: array
+                items:
+                  type: string
+        tenant_permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              tenant_patterns:
+                type: array
+                items:
+                  type: string
+              allowed_actions:
+                type: array
+                items:
+                  type: string
+        description:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

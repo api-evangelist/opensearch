@@ -1,0 +1,58 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Certificates API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Certificates
+  description: Inspect SSL certificates loaded by the cluster.
+paths:
+  /_plugins/_security/api/ssl/certs:
+    get:
+      operationId: getCertificates
+      summary: Get SSL certificates loaded by the cluster
+      tags:
+      - Certificates
+      responses:
+        '200':
+          description: Loaded certificates.
+  /_plugins/_security/api/ssl/transport/reloadcerts:
+    put:
+      operationId: reloadTransportCerts
+      summary: Reload transport-layer SSL certificates
+      tags:
+      - Certificates
+      responses:
+        '200':
+          description: Transport certificates reloaded.
+  /_plugins/_security/api/ssl/http/reloadcerts:
+    put:
+      operationId: reloadHttpCerts
+      summary: Reload HTTP-layer SSL certificates
+      tags:
+      - Certificates
+      responses:
+        '200':
+          description: HTTP certificates reloaded.
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

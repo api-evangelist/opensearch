@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Nodes DN API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Nodes DN
+  description: Allowlisted distinguished names for cross-cluster nodes.
+paths:
+  /_plugins/_security/api/nodesdn:
+    get:
+      operationId: listNodesDn
+      summary: List all node DN entries
+      tags:
+      - Nodes DN
+      responses:
+        '200':
+          description: All node DN entries.
+  /_plugins/_security/api/nodesdn/{name}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getNodesDn
+      summary: Get node DN entry
+      tags:
+      - Nodes DN
+      responses:
+        '200':
+          description: Node DN entry.
+    put:
+      operationId: createOrReplaceNodesDn
+      summary: Create or replace node DN entry
+      tags:
+      - Nodes DN
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Node DN created or updated.
+    delete:
+      operationId: deleteNodesDn
+      summary: Delete node DN entry
+      tags:
+      - Nodes DN
+      responses:
+        '200':
+          description: Node DN deleted.
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/

@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST Account Allowlist API
+  description: The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{cluster-host}:9200
+  description: OpenSearch cluster (default port 9200)
+  variables:
+    cluster-host:
+      default: localhost
+security:
+- BasicAuth: []
+tags:
+- name: Allowlist
+  description: Allowlist of HTTP APIs available to non-admin users.
+paths:
+  /_plugins/_security/api/allowlist:
+    get:
+      operationId: getAllowlist
+      summary: Get allowlist
+      tags:
+      - Allowlist
+      responses:
+        '200':
+          description: Allowlist configuration.
+    put:
+      operationId: replaceAllowlist
+      summary: Replace allowlist
+      tags:
+      - Allowlist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Allowlist replaced.
+    patch:
+      operationId: patchAllowlist
+      summary: Patch allowlist
+      tags:
+      - Allowlist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Allowlist patched.
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/
