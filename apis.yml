@@ -8,9 +8,22 @@ description: OpenSearch is the open source, community-driven search, analytics, 
   internal users, roles, role mappings, action groups, tenants, security configuration,
   audit log configuration, and SSL certificates.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/opensearch.png
 tags:
 - Search
 - Analytics
@@ -22,38 +35,11 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: opensearch:opensearch-security-api
-  name: OpenSearch Security Plugin REST API
-  description: The Security plugin REST API lets administrators programmatically create
-    and manage internal users, roles, role mappings, action groups, tenants, security
-    configuration, audit log configuration, allowlists, node DN entries, and SSL certificates.
-    Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster
-    and require authentication.
-  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
-  baseURL: https://{cluster-host}:9200
-  tags:
-  - Security
-  - Access Control
-  - Roles
-  - Authentication
-  properties:
-  - type: Documentation
-    url: https://docs.opensearch.org/latest/security/access-control/api/
-  - type: Documentation
-    url: https://docs.opensearch.org/latest/security/access-control/index/
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/openapi/opensearch-security-openapi.yml
-  - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
-  - type: JSONLDContext
-    url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - url: graphql/opensearch-graphql.md
-    type: GraphQL
 - aid: opensearch:opensearch-search-api
   name: OpenSearch Search and Indexing REST API
-  description: The core OpenSearch REST API for indexing documents, performing search
-    queries (full text, vector, hybrid), aggregations, and managing indices, mappings,
-    templates, aliases, and snapshots.
+  description: >-
+    The core OpenSearch REST API for indexing documents, performing search queries (full text, vector,
+    hybrid), aggregations, and managing indices, mappings, templates, aliases, and snapshots.
   humanURL: https://docs.opensearch.org/latest/api-reference/
   baseURL: https://{cluster-host}:9200
   tags:
@@ -68,6 +54,314 @@ apis:
     url: https://docs.opensearch.org/latest/search-plugins/
   - type: Reference
     url: https://docs.opensearch.org/latest/api-reference/search/
+- aid: opensearch:opensearch-account-api
+  name: OpenSearch Account API
+  description: Self-service account endpoints for the calling user.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-action-groups-api
+  name: OpenSearch Action Groups API
+  description: Reusable groups of cluster and index permissions.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Action Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-action-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-allowlist-api
+  name: OpenSearch Allowlist API
+  description: Allowlist of HTTP APIs available to non-admin users.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Allowlist
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-allowlist-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-audit-api
+  name: OpenSearch Audit API
+  description: Audit log configuration.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Audit
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-audit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-cache-api
+  name: OpenSearch Cache API
+  description: Manage the security cache.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Cache
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-cache-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-certificates-api
+  name: OpenSearch Certificates API
+  description: Inspect SSL certificates loaded by the cluster.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-certificates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-health-api
+  name: OpenSearch Health API
+  description: Security plugin health check.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-health-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-internal-users-api
+  name: OpenSearch Internal Users API
+  description: CRUD for internal user database entries.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Internal Users
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-internal-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-nodes-dn-api
+  name: OpenSearch Nodes DN API
+  description: Allowlisted distinguished names for cross-cluster nodes.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Nodes DN
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-nodes-dn-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-role-mappings-api
+  name: OpenSearch Role Mappings API
+  description: Map users, backend roles, and hosts to security roles.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Role Mappings
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-role-mappings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-roles-api
+  name: OpenSearch Roles API
+  description: CRUD for security roles and their permissions.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-security-config-api
+  name: OpenSearch Security Config API
+  description: Inspect and update the running security configuration.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Security Config
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-security-config-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-ssl-info-api
+  name: OpenSearch SSL Info API
+  description: Inspect SSL handshake information for the calling client.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - SSL Info
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-ssl-info-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
+- aid: opensearch:opensearch-tenants-api
+  name: OpenSearch Tenants API
+  description: Multi-tenancy support for OpenSearch Dashboards.
+  humanURL: https://docs.opensearch.org/latest/security/access-control/api/
+  baseURL: https://{cluster-host}:9200
+  tags:
+  - Tenants
+  properties:
+  - type: OpenAPI
+    url: openapi/opensearch-tenants-api-openapi.yml
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/api/
+  - type: Documentation
+    url: https://docs.opensearch.org/latest/security/access-control/index/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
+  - type: GraphQL
+    url: graphql/opensearch-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/opensearch-agentic-access.yml
