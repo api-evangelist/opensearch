@@ -1,0 +1,40 @@
+{
+  "provider": "opensearch",
+  "sources": [
+    "opensearch-account-api-openapi.yml",
+    "opensearch-action-groups-api-openapi.yml",
+    "opensearch-allowlist-api-openapi.yml",
+    "opensearch-audit-api-openapi.yml",
+    "opensearch-cache-api-openapi.yml",
+    "opensearch-certificates-api-openapi.yml",
+    "opensearch-health-api-openapi.yml",
+    "opensearch-internal-users-api-openapi.yml",
+    "opensearch-nodes-dn-api-openapi.yml",
+    "opensearch-role-mappings-api-openapi.yml",
+    "opensearch-roles-api-openapi.yml",
+    "opensearch-security-config-api-openapi.yml",
+    "opensearch-ssl-info-api-openapi.yml",
+    "opensearch-tenants-api-openapi.yml"
+  ],
+  "outputs": [
+    "opensearch-account-api-openapi.yml",
+    "opensearch-action-groups-api-openapi.yml",
+    "opensearch-allowlist-api-openapi.yml",
+    "opensearch-audit-api-openapi.yml",
+    "opensearch-cache-api-openapi.yml",
+    "opensearch-certificates-api-openapi.yml",
+    "opensearch-health-api-openapi.yml",
+    "opensearch-internal-users-api-openapi.yml",
+    "opensearch-nodes-dn-api-openapi.yml",
+    "opensearch-role-mappings-api-openapi.yml",
+    "opensearch-roles-api-openapi.yml",
+    "opensearch-security-config-api-openapi.yml",
+    "opensearch-ssl-info-api-openapi.yml",
+    "opensearch-tenants-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

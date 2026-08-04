@@ -1,0 +1,689 @@
+openapi: 3.1.0
+info:
+  title: OpenSearch Security Plugin REST API
+  description: >-
+    The OpenSearch Security plugin REST API lets administrators programmatically
+    create and manage internal users, roles, role mappings, action groups,
+    tenants, security configuration, audit log configuration, certificates,
+    cache, allowlists, distinguished node names, and inspect the running
+    security configuration. Endpoints are exposed under
+    /_plugins/_security/api on the OpenSearch cluster.
+  version: 2.x
+  contact:
+    name: OpenSearch Project
+    url: https://opensearch.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: OpenSearch Security Access Control API
+  url: https://docs.opensearch.org/latest/security/access-control/api/
+servers:
+  - url: https://{cluster-host}:9200
+    description: OpenSearch cluster (default port 9200)
+    variables:
+      cluster-host:
+        default: localhost
+security:
+  - BasicAuth: []
+tags:
+  - name: Account
+    description: Self-service account endpoints for the calling user.
+  - name: Internal Users
+    description: CRUD for internal user database entries.
+  - name: Roles
+    description: CRUD for security roles and their permissions.
+  - name: Role Mappings
+    description: Map users, backend roles, and hosts to security roles.
+  - name: Action Groups
+    description: Reusable groups of cluster and index permissions.
+  - name: Tenants
+    description: Multi-tenancy support for OpenSearch Dashboards.
+  - name: Security Config
+    description: Inspect and update the running security configuration.
+  - name: Audit
+    description: Audit log configuration.
+  - name: Allowlist
+    description: Allowlist of HTTP APIs available to non-admin users.
+  - name: Nodes DN
+    description: Allowlisted distinguished names for cross-cluster nodes.
+  - name: Certificates
+    description: Inspect SSL certificates loaded by the cluster.
+  - name: Cache
+    description: Manage the security cache.
+  - name: Health
+    description: Security plugin health check.
+  - name: SSL Info
+    description: Inspect SSL handshake information for the calling client.
+paths:
+  /_plugins/_security/api/account:
+    get:
+      operationId: getAccount
+      summary: Get current user account
+      description: Returns information about the currently authenticated user.
+      tags: [Account]
+      responses:
+        '200':
+          description: Current user account information.
+    put:
+      operationId: changePassword
+      summary: Change current user password
+      tags: [Account]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                password:
+                  type: string
+              required: [current_password, password]
+      responses:
+        '200':
+          description: Password changed.
+  /_plugins/_security/api/internalusers:
+    get:
+      operationId: listInternalUsers
+      summary: List all internal users
+      tags: [Internal Users]
+      responses:
+        '200':
+          description: Map of all internal users.
+  /_plugins/_security/api/internalusers/{username}:
+    parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getInternalUser
+      summary: Get internal user
+      tags: [Internal Users]
+      responses:
+        '200':
+          description: Internal user definition.
+    put:
+      operationId: createOrReplaceInternalUser
+      summary: Create or replace an internal user
+      tags: [Internal Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternalUser'
+      responses:
+        '200':
+          description: User created or updated.
+    delete:
+      operationId: deleteInternalUser
+      summary: Delete internal user
+      tags: [Internal Users]
+      responses:
+        '200':
+          description: User deleted.
+    patch:
+      operationId: patchInternalUser
+      summary: Patch internal user
+      tags: [Internal Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: User patched.
+  /_plugins/_security/api/roles:
+    get:
+      operationId: listRoles
+      summary: List all roles
+      tags: [Roles]
+      responses:
+        '200':
+          description: All roles.
+  /_plugins/_security/api/roles/{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getRole
+      summary: Get role
+      tags: [Roles]
+      responses:
+        '200':
+          description: Role definition.
+    put:
+      operationId: createOrReplaceRole
+      summary: Create or replace a role
+      tags: [Roles]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+      responses:
+        '200':
+          description: Role created or updated.
+    delete:
+      operationId: deleteRole
+      summary: Delete role
+      tags: [Roles]
+      responses:
+        '200':
+          description: Role deleted.
+    patch:
+      operationId: patchRole
+      summary: Patch role
+      tags: [Roles]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Role patched.
+  /_plugins/_security/api/rolesmapping:
+    get:
+      operationId: listRoleMappings
+      summary: List all role mappings
+      tags: [Role Mappings]
+      responses:
+        '200':
+          description: All role mappings.
+  /_plugins/_security/api/rolesmapping/{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getRoleMapping
+      summary: Get role mapping
+      tags: [Role Mappings]
+      responses:
+        '200':
+          description: Role mapping definition.
+    put:
+      operationId: createOrReplaceRoleMapping
+      summary: Create or replace a role mapping
+      tags: [Role Mappings]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleMapping'
+      responses:
+        '200':
+          description: Role mapping created or updated.
+    delete:
+      operationId: deleteRoleMapping
+      summary: Delete role mapping
+      tags: [Role Mappings]
+      responses:
+        '200':
+          description: Role mapping deleted.
+    patch:
+      operationId: patchRoleMapping
+      summary: Patch role mapping
+      tags: [Role Mappings]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Role mapping patched.
+  /_plugins/_security/api/actiongroups:
+    get:
+      operationId: listActionGroups
+      summary: List all action groups
+      tags: [Action Groups]
+      responses:
+        '200':
+          description: All action groups.
+  /_plugins/_security/api/actiongroups/{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getActionGroup
+      summary: Get action group
+      tags: [Action Groups]
+      responses:
+        '200':
+          description: Action group definition.
+    put:
+      operationId: createOrReplaceActionGroup
+      summary: Create or replace an action group
+      tags: [Action Groups]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionGroup'
+      responses:
+        '200':
+          description: Action group created or updated.
+    delete:
+      operationId: deleteActionGroup
+      summary: Delete action group
+      tags: [Action Groups]
+      responses:
+        '200':
+          description: Action group deleted.
+    patch:
+      operationId: patchActionGroup
+      summary: Patch action group
+      tags: [Action Groups]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Action group patched.
+  /_plugins/_security/api/tenants:
+    get:
+      operationId: listTenants
+      summary: List all tenants
+      tags: [Tenants]
+      responses:
+        '200':
+          description: All tenants.
+  /_plugins/_security/api/tenants/{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getTenant
+      summary: Get tenant
+      tags: [Tenants]
+      responses:
+        '200':
+          description: Tenant definition.
+    put:
+      operationId: createOrReplaceTenant
+      summary: Create or replace a tenant
+      tags: [Tenants]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tenant'
+      responses:
+        '200':
+          description: Tenant created or updated.
+    delete:
+      operationId: deleteTenant
+      summary: Delete tenant
+      tags: [Tenants]
+      responses:
+        '200':
+          description: Tenant deleted.
+    patch:
+      operationId: patchTenant
+      summary: Patch tenant
+      tags: [Tenants]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Tenant patched.
+  /_plugins/_security/api/securityconfig:
+    get:
+      operationId: getSecurityConfig
+      summary: Get security configuration
+      tags: [Security Config]
+      responses:
+        '200':
+          description: Current security configuration.
+    patch:
+      operationId: patchSecurityConfig
+      summary: Patch security configuration
+      tags: [Security Config]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Security configuration patched.
+  /_plugins/_security/api/securityconfig/config:
+    put:
+      operationId: replaceSecurityConfig
+      summary: Replace security configuration
+      tags: [Security Config]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Security configuration replaced.
+  /_plugins/_security/api/audit:
+    get:
+      operationId: getAuditConfig
+      summary: Get audit log configuration
+      tags: [Audit]
+      responses:
+        '200':
+          description: Audit log configuration.
+  /_plugins/_security/api/audit/config:
+    put:
+      operationId: replaceAuditConfig
+      summary: Replace audit log configuration
+      tags: [Audit]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Audit configuration replaced.
+    patch:
+      operationId: patchAuditConfig
+      summary: Patch audit log configuration
+      tags: [Audit]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Audit configuration patched.
+  /_plugins/_security/api/allowlist:
+    get:
+      operationId: getAllowlist
+      summary: Get allowlist
+      tags: [Allowlist]
+      responses:
+        '200':
+          description: Allowlist configuration.
+    put:
+      operationId: replaceAllowlist
+      summary: Replace allowlist
+      tags: [Allowlist]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Allowlist replaced.
+    patch:
+      operationId: patchAllowlist
+      summary: Patch allowlist
+      tags: [Allowlist]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: Allowlist patched.
+  /_plugins/_security/api/nodesdn:
+    get:
+      operationId: listNodesDn
+      summary: List all node DN entries
+      tags: [Nodes DN]
+      responses:
+        '200':
+          description: All node DN entries.
+  /_plugins/_security/api/nodesdn/{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getNodesDn
+      summary: Get node DN entry
+      tags: [Nodes DN]
+      responses:
+        '200':
+          description: Node DN entry.
+    put:
+      operationId: createOrReplaceNodesDn
+      summary: Create or replace node DN entry
+      tags: [Nodes DN]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Node DN created or updated.
+    delete:
+      operationId: deleteNodesDn
+      summary: Delete node DN entry
+      tags: [Nodes DN]
+      responses:
+        '200':
+          description: Node DN deleted.
+  /_plugins/_security/api/ssl/certs:
+    get:
+      operationId: getCertificates
+      summary: Get SSL certificates loaded by the cluster
+      tags: [Certificates]
+      responses:
+        '200':
+          description: Loaded certificates.
+  /_plugins/_security/api/ssl/transport/reloadcerts:
+    put:
+      operationId: reloadTransportCerts
+      summary: Reload transport-layer SSL certificates
+      tags: [Certificates]
+      responses:
+        '200':
+          description: Transport certificates reloaded.
+  /_plugins/_security/api/ssl/http/reloadcerts:
+    put:
+      operationId: reloadHttpCerts
+      summary: Reload HTTP-layer SSL certificates
+      tags: [Certificates]
+      responses:
+        '200':
+          description: HTTP certificates reloaded.
+  /_plugins/_security/api/cache:
+    delete:
+      operationId: flushSecurityCache
+      summary: Flush security cache
+      tags: [Cache]
+      responses:
+        '200':
+          description: Cache flushed.
+  /_plugins/_security/health:
+    get:
+      operationId: securityHealth
+      summary: Security plugin health
+      tags: [Health]
+      security: []
+      responses:
+        '200':
+          description: Plugin health status.
+  /_plugins/_security/authinfo:
+    get:
+      operationId: authInfo
+      summary: Get authentication info for current request
+      tags: [SSL Info]
+      responses:
+        '200':
+          description: Authentication info.
+  /_plugins/_security/sslinfo:
+    get:
+      operationId: sslInfo
+      summary: Get SSL handshake info for current request
+      tags: [SSL Info]
+      responses:
+        '200':
+          description: SSL info.
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    InternalUser:
+      type: object
+      properties:
+        password:
+          type: string
+        hash:
+          type: string
+        backend_roles:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+        opendistro_security_roles:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+    Role:
+      type: object
+      properties:
+        cluster_permissions:
+          type: array
+          items:
+            type: string
+        index_permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              index_patterns:
+                type: array
+                items:
+                  type: string
+              dls:
+                type: string
+              fls:
+                type: array
+                items:
+                  type: string
+              masked_fields:
+                type: array
+                items:
+                  type: string
+              allowed_actions:
+                type: array
+                items:
+                  type: string
+        tenant_permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              tenant_patterns:
+                type: array
+                items:
+                  type: string
+              allowed_actions:
+                type: array
+                items:
+                  type: string
+        description:
+          type: string
+    RoleMapping:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: string
+        backend_roles:
+          type: array
+          items:
+            type: string
+        hosts:
+          type: array
+          items:
+            type: string
+        and_backend_roles:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+    ActionGroup:
+      type: object
+      properties:
+        allowed_actions:
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+        description:
+          type: string
+    Tenant:
+      type: object
+      properties:
+        description:
+          type: string
