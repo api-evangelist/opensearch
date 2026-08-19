@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST Account Health API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Security plugin health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/health"
+          },
+          "docs": "Security plugin health"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

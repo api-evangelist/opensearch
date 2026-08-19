@@ -1,0 +1,377 @@
+{
+  "item": [
+    {
+      "id": "9a089287-42fb-44eb-93f7-e0e7b2d2d614",
+      "name": "Audit",
+      "description": {
+        "content": "Audit log configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43aa5d38-c0fb-4d6b-9f7a-a8181cc6d672",
+          "name": "Get audit log configuration",
+          "request": {
+            "name": "Get audit log configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "audit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ce3ed9d-6167-4932-8c48-f98b137a9682",
+              "name": "Audit log configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff35399c-e6df-4523-959e-4fa34da47de2",
+          "name": "Replace audit log configuration",
+          "request": {
+            "name": "Replace audit log configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "audit",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eee5d3d4-8493-4604-bc19-180796b3e6b1",
+              "name": "Audit configuration replaced.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "audit",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58ab503d-d9ed-47d3-bbd5-e7d8ba06317f",
+          "name": "Patch audit log configuration",
+          "request": {
+            "name": "Patch audit log configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "audit",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "166d85b0-5da5-44b9-82df-7dae2f830c03",
+              "name": "Audit configuration patched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "audit",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "cluster-host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{cluster-host}}:9200",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fa449775-8259-4cb1-b6c1-159a1b84fe6d",
+    "name": "OpenSearch Security Plugin REST Account Audit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+      "type": "text/plain"
+    }
+  }
+}

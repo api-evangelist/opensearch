@@ -1,0 +1,619 @@
+{
+  "item": [
+    {
+      "id": "77bae257-5855-4831-802e-9c67c3e91263",
+      "name": "Role Mappings",
+      "description": {
+        "content": "Map users, backend roles, and hosts to security roles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "212d674c-5548-4187-a7be-c9d8679412cc",
+          "name": "List all role mappings",
+          "request": {
+            "name": "List all role mappings",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "rolesmapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6aa4bd2c-55e9-4d5f-bcd6-6fbd2a1adf07",
+              "name": "All role mappings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "rolesmapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bc9bfd7-3b1a-4e68-8eb2-9fb895bf0833",
+          "name": "Get role mapping",
+          "request": {
+            "name": "Get role mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "rolesmapping",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b347afa-09b9-4f1c-828c-ee8f3573280f",
+              "name": "Role mapping definition.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "rolesmapping",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a31d80b-ebcb-4913-a0c9-74f8a952ce6c",
+          "name": "Create or replace a role mapping",
+          "request": {
+            "name": "Create or replace a role mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "rolesmapping",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"and_backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51233f11-e9ea-43ea-9c7c-ea8d146f0248",
+              "name": "Role mapping created or updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "rolesmapping",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hosts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"and_backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5105fac-07d9-41a0-9b51-16a7bad23549",
+          "name": "Delete role mapping",
+          "request": {
+            "name": "Delete role mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "rolesmapping",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5fd67016-712b-4def-b42c-70153c6a00e4",
+              "name": "Role mapping deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "rolesmapping",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "442fce8c-a141-4898-8291-eae85066c070",
+          "name": "Patch role mapping",
+          "request": {
+            "name": "Patch role mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "rolesmapping",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18c91125-9e2c-4d29-a65c-ca61c7e28801",
+              "name": "Role mapping patched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "rolesmapping",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "cluster-host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{cluster-host}}:9200",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "66afe77b-2998-45d8-8302-8eeefba95afc",
+    "name": "OpenSearch Security Plugin REST Account Role Mappings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+      "type": "text/plain"
+    }
+  }
+}

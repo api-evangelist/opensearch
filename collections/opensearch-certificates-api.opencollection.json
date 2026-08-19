@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST Account Certificates API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Certificates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get SSL certificates loaded by the cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/ssl/certs"
+          },
+          "docs": "Get SSL certificates loaded by the cluster"
+        },
+        {
+          "info": {
+            "name": "Reload transport-layer SSL certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/ssl/transport/reloadcerts"
+          },
+          "docs": "Reload transport-layer SSL certificates"
+        },
+        {
+          "info": {
+            "name": "Reload HTTP-layer SSL certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/ssl/http/reloadcerts"
+          },
+          "docs": "Reload HTTP-layer SSL certificates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

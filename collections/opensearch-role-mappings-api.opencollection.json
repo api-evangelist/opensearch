@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST Account Role Mappings API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Role Mappings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all role mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping"
+          },
+          "docs": "List all role mappings"
+        },
+        {
+          "info": {
+            "name": "Get role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get role mapping"
+        },
+        {
+          "info": {
+            "name": "Create or replace a role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace a role mapping"
+        },
+        {
+          "info": {
+            "name": "Patch role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch role mapping"
+        },
+        {
+          "info": {
+            "name": "Delete role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/rolesmapping/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete role mapping"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

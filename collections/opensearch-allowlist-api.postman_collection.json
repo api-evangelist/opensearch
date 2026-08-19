@@ -1,0 +1,373 @@
+{
+  "item": [
+    {
+      "id": "ea158e1e-5309-4fb0-babe-d06dea00f1e5",
+      "name": "Allowlist",
+      "description": {
+        "content": "Allowlist of HTTP APIs available to non-admin users.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f45365f-a188-423b-8fb6-216a75f5edd0",
+          "name": "Get allowlist",
+          "request": {
+            "name": "Get allowlist",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "allowlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b37b463c-8fa8-4e13-b11c-fe306d0236f9",
+              "name": "Allowlist configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49dc24c6-b80b-462b-9b9f-8edcfb6e2ed4",
+          "name": "Replace allowlist",
+          "request": {
+            "name": "Replace allowlist",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "allowlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31f8b021-c105-410e-81ca-023cfadd720c",
+              "name": "Allowlist replaced.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0914e7b-4fe3-4f66-b1bf-46f3fd275ed3",
+          "name": "Patch allowlist",
+          "request": {
+            "name": "Patch allowlist",
+            "description": {},
+            "url": {
+              "path": [
+                "_plugins",
+                "_security",
+                "api",
+                "allowlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{cluster-host}}",
+                  "key": "cluster-host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d3a6ff8-b75b-49cc-9783-8875f053a177",
+              "name": "Allowlist patched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_plugins",
+                    "_security",
+                    "api",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{cluster-host}}",
+                      "key": "cluster-host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "cluster-host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{cluster-host}}:9200",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "936689f5-8887-4043-b230-5891d0ae3ad7",
+    "name": "OpenSearch Security Plugin REST Account Allowlist API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+      "type": "text/plain"
+    }
+  }
+}

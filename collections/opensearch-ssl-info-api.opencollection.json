@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST Account SSL Info API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSL Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get authentication info for current request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/authinfo"
+          },
+          "docs": "Get authentication info for current request"
+        },
+        {
+          "info": {
+            "name": "Get SSL handshake info for current request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/sslinfo"
+          },
+          "docs": "Get SSL handshake info for current request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

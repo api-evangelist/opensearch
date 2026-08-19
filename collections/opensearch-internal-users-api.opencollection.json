@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST Account Internal Users API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Internal Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all internal users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers"
+          },
+          "docs": "List all internal users"
+        },
+        {
+          "info": {
+            "name": "Get internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get internal user"
+        },
+        {
+          "info": {
+            "name": "Create or replace an internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace an internal user"
+        },
+        {
+          "info": {
+            "name": "Patch internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch internal user"
+        },
+        {
+          "info": {
+            "name": "Delete internal user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/internalusers/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete internal user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

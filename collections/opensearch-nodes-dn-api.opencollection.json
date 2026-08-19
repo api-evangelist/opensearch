@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSearch Security Plugin REST Account Nodes DN API",
+    "version": "2.x"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Nodes DN",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all node DN entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn"
+          },
+          "docs": "List all node DN entries"
+        },
+        {
+          "info": {
+            "name": "Get node DN entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get node DN entry"
+        },
+        {
+          "info": {
+            "name": "Create or replace node DN entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace node DN entry"
+        },
+        {
+          "info": {
+            "name": "Delete node DN entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{cluster-host}:9200/_plugins/_security/api/nodesdn/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete node DN entry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
