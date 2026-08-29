@@ -8,6 +8,19 @@ description: OpenSearch is the open source, community-driven search, analytics, 
   internal users, roles, role mappings, action groups, tenants, security configuration,
   audit log configuration, and SSL certificates.
 type: Index
+deliveryModel:
+  model: unknown
+  license: License (Apache 2.0)
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
