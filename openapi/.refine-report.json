@@ -1,20 +1,7 @@
 {
   "provider": "opensearch",
   "sources": [
-    "opensearch-account-api-openapi.yml",
-    "opensearch-action-groups-api-openapi.yml",
-    "opensearch-allowlist-api-openapi.yml",
-    "opensearch-audit-api-openapi.yml",
-    "opensearch-cache-api-openapi.yml",
-    "opensearch-certificates-api-openapi.yml",
-    "opensearch-health-api-openapi.yml",
-    "opensearch-internal-users-api-openapi.yml",
-    "opensearch-nodes-dn-api-openapi.yml",
-    "opensearch-role-mappings-api-openapi.yml",
-    "opensearch-roles-api-openapi.yml",
-    "opensearch-security-config-api-openapi.yml",
-    "opensearch-ssl-info-api-openapi.yml",
-    "opensearch-tenants-api-openapi.yml"
+    "_original/opensearch-security-openapi.yml"
   ],
   "outputs": [
     "opensearch-account-api-openapi.yml",
@@ -28,13 +15,32 @@
     "opensearch-nodes-dn-api-openapi.yml",
     "opensearch-role-mappings-api-openapi.yml",
     "opensearch-roles-api-openapi.yml",
-    "opensearch-security-config-api-openapi.yml",
     "opensearch-ssl-info-api-openapi.yml",
+    "opensearch-security-config-api-openapi.yml",
     "opensearch-tenants-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "opensearch-security-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "opensearch-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-action-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-allowlist-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-audit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-cache-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-certificates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-internal-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-nodes-dn-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-role-mappings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-security-config-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-ssl-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opensearch-tenants-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
