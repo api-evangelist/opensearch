@@ -43,7 +43,7 @@ tags:
 - Search
 - Analytics
 - Observability
-- Open-Source
+- Open Source
 - Security
 tags_raw:
 - OpenSearch
@@ -52,6 +52,7 @@ tags_raw:
 - Observability
 - Open Source
 - Security
+- Open-Source
 created: '2025-01-08'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/apis.yml
@@ -96,8 +97,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-action-groups-api
   name: OpenSearch Action Groups API
   description: Reusable groups of cluster and index permissions.
@@ -118,8 +117,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-allowlist-api
   name: OpenSearch Allowlist API
   description: Allowlist of HTTP APIs available to non-admin users.
@@ -140,8 +137,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-audit-api
   name: OpenSearch Audit API
   description: Audit log configuration.
@@ -162,8 +157,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-cache-api
   name: OpenSearch Cache API
   description: Manage the security cache.
@@ -184,8 +177,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-certificates-api
   name: OpenSearch Certificates API
   description: Inspect SSL certificates loaded by the cluster.
@@ -206,8 +197,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-health-api
   name: OpenSearch Health API
   description: Security plugin health check.
@@ -228,8 +217,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-internal-users-api
   name: OpenSearch Internal Users API
   description: CRUD for internal user database entries.
@@ -250,8 +237,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-nodes-dn-api
   name: OpenSearch Nodes DN API
   description: Allowlisted distinguished names for cross-cluster nodes.
@@ -272,8 +257,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-role-mappings-api
   name: OpenSearch Role Mappings API
   description: Map users, backend roles, and hosts to security roles.
@@ -294,8 +277,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-roles-api
   name: OpenSearch Roles API
   description: CRUD for security roles and their permissions.
@@ -316,8 +297,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-security-config-api
   name: OpenSearch Security Config API
   description: Inspect and update the running security configuration.
@@ -338,8 +317,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-ssl-info-api
   name: OpenSearch SSL Info API
   description: Inspect SSL handshake information for the calling client.
@@ -360,8 +337,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 - aid: opensearch:opensearch-tenants-api
   name: OpenSearch Tenants API
   description: Multi-tenancy support for OpenSearch Dashboards.
@@ -382,8 +357,6 @@ apis:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
-  - type: GraphQL
-    url: graphql/opensearch-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/opensearch-agentic-access.yml
@@ -438,8 +411,6 @@ common:
 - name: Agent Skills
   url: https://github.com/opensearch-project/opensearch-agent-skills
   type: AgentSkills
-- url: graphql/opensearch-graphql.md
-  type: GraphQL
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
