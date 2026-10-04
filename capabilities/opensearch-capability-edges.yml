@@ -1,0 +1,65 @@
+slug: opensearch
+provider: OpenSearch
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Internal Users
+  spec_file: opensearch-internal-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.92
+  evidence: PUT /_plugins/_security/api/internalusers/{username} createOrReplaceInternalUser Create or
+    replace an internal user; schema InternalUser
+  reason: Full CRUD lifecycle over internal user accounts in the security backend is unambiguously Identity
+    & Access Management, not HR employee records.
+- tag: Role Mappings
+  spec_file: opensearch-role-mappings-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: PUT /_plugins/_security/api/rolesmapping/{name} createOrReplaceRoleMapping Create or replace
+    a role mapping; schema RoleMapping
+  reason: Mapping users, backend roles and hosts onto security roles is core access-rights administration
+    (IAM).
+- tag: Roles
+  spec_file: opensearch-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: PUT /_plugins/_security/api/roles/{name} createOrReplaceRole Create or replace a role; schema
+    Role
+  reason: Role CRUD defining cluster/index/document-level permissions is role-based access control administration,
+    i.e. Identity & Access Management.
+- tag: Account
+  spec_file: opensearch-account-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: GET /_plugins/_security/api/account getAccount Get current user account; PUT ... changePassword
+    Change current user password
+  reason: Operations retrieve the authenticated user's account and change their password within the Security
+    plugin — user credential/identity administration, i.e. Identity & Access Management, not a customer-account
+    business capability.
+- tag: Action Groups
+  spec_file: opensearch-action-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /_plugins/_security/api/actiongroups listActionGroups List all action groups; schema ActionGroup
+  reason: Action groups are reusable bundles of cluster/index permissions referenced by roles; CRUD over
+    them is access-permission administration under the Security plugin.

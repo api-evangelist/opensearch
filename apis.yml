@@ -358,6 +358,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/opensearch-capability-edges.yml
+  name: OpenSearch Business Capability Map
 - type: AgenticAccess
   url: agentic-access/opensearch-agentic-access.yml
 - type: DomainSecurity
