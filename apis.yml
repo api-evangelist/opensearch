@@ -358,6 +358,12 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
 common:
+- type: Plans
+  url: plans/opensearch-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/opensearch-rate-limits.yml
+- type: FinOps
+  url: finops/opensearch-finops.yml
 - type: CapabilityMap
   url: capabilities/opensearch-capability-edges.yml
   name: OpenSearch Business Capability Map
