@@ -1,0 +1,34 @@
+# Front Door AI Index — opensearch — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: opensearch
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: opensearch.org
+  final_host: opensearch.org
+  ownership: own
+  owner: opensearch
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 19
+  band: 5
+  band_label: prominent
+  host_score: 19
+  density: 18.3
+  words: 1038
+  tiers:
+    agentic: 3
+    core: 16
+    model: 0
+  ambiguous: 5
+  top_terms:
+    AI: 8
+    machine learning: 5
+    intelligence: 3
+    vector database: 3
+    agent: 2
+    generative ai: 2
+    ML: 1
