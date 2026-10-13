@@ -1,0 +1,20 @@
+edges:
+- partner_name: Elastic
+  partner: elastic
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: elasticsearch-api
+  type: docs
+  degree: interoperable-subset
+  evidence: https://docs.opensearch.org/latest/clients/
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/opensearch/blob/main/evidence/compatibility/opensearch-elasticsearch-api-1.md
+  quote: Clients that work with Elasticsearch OSS 7.10.2 should work with OpenSearch 1.x. The latest versions of
+    those clients, however, might include license or version checks that artificially break compatibility. The following
+    table provides reco
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched

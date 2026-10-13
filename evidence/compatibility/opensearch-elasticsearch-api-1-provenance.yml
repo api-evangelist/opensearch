@@ -1,0 +1,14 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://docs.opensearch.org/latest/clients/
+page: https://docs.opensearch.org/latest/clients/
+file: opensearch-elasticsearch-api-1.md
+bytes: 4243
+sha256: 403969c4096a8cb2de947719283d441540697a91c1df1b62447511379b00f561
+anchor: elastic
+shape: elasticsearch-api
+classification: declares-compatibility
+quote: Clients that work with Elasticsearch OSS 7.10.2 should work with OpenSearch 1.x. The latest versions of those
+  clients, however, might include license or version checks that artificially break compatibility. The following
+  table provides recommendations for which client versions to use for best compat
+note: text extracted from the provider's own page (tags stripped), saved for evidence
