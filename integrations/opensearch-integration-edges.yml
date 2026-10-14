@@ -16,5 +16,31 @@ edges:
     table provides reco
   detected_by: sweep-shape-compat.py
   first_seen: '2026-10-13'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/opensearch
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - opensearch
+      status: released
+      sync_types:
+      - Index documents
+      sync_modes:
+      - update
+      - upsert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 generated: '2026-10-13'
 method: searched
+checked:
+- https://hightouch.com/docs/destinations/opensearch
+source: https://hightouch.com/docs/destinations/opensearch
