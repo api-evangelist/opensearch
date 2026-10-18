@@ -95,5 +95,5 @@
     - connectors/databases/opensearch
     vendor_link: https://opensearch.org/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
