@@ -358,6 +358,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/opensearch/overview
 - type: Plans
   url: plans/opensearch-plans-pricing.yml
 - type: RateLimits
