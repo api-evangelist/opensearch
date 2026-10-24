@@ -1,315 +1,297 @@
 {
+  "info": {
+    "_postman_id": "1b837b21-3512-4e31-b8f6-3b63acddb47d",
+    "name": "OpenSearch Security Plugin REST Certificates API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:50:14.000Z",
+    "updatedAt": "2026-10-21T20:50:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1b837b21-3512-4e31-b8f6-3b63acddb47d"
+  },
   "item": [
     {
-      "id": "6e78fb9e-0d28-4d26-8062-dbb82f7b5143",
-      "name": "Certificates",
-      "description": {
-        "content": "Inspect SSL certificates loaded by the cluster.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "ccbeccb3-ba13-4cf5-8462-831d9b6a90a0",
-          "name": "Get SSL certificates loaded by the cluster",
-          "request": {
-            "name": "Get SSL certificates loaded by the cluster",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "ssl",
-                "certs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "856dd9e9-ba27-44b6-a31f-4516c6ad3947",
-              "name": "Loaded certificates.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "ssl",
-                    "certs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "ssl",
+                  "item": [
+                    {
+                      "name": "certs",
+                      "item": [
+                        {
+                          "name": "Get SSL certificates loaded by the cluster",
+                          "id": "12e0c5b4-306c-4641-9aae-2464b9195aec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/ssl/certs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "ssl",
+                                "certs"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "0575c736-54f5-472e-85b9-8b03bd5c4a87",
+                              "name": "Loaded certificates.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/ssl/certs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "ssl",
+                                    "certs"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:15.000Z",
+                              "updatedAt": "2026-10-21T20:50:15.000Z",
+                              "uid": "35240-0575c736-54f5-472e-85b9-8b03bd5c4a87"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:15.000Z",
+                          "updatedAt": "2026-10-21T20:50:15.000Z",
+                          "uid": "35240-12e0c5b4-306c-4641-9aae-2464b9195aec"
+                        }
+                      ],
+                      "id": "68b314f1-66ff-4e8a-9987-7bcc3d541893",
+                      "createdAt": "2026-10-21T20:50:15.000Z",
+                      "updatedAt": "2026-10-21T20:50:15.000Z",
+                      "uid": "35240-68b314f1-66ff-4e8a-9987-7bcc3d541893"
+                    },
+                    {
+                      "name": "transport",
+                      "item": [
+                        {
+                          "name": "reloadcerts",
+                          "item": [
+                            {
+                              "name": "Reload transport-layer SSL certificates",
+                              "id": "de567e33-bfb9-43aa-b972-43848a908ece",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/ssl/transport/reloadcerts",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "ssl",
+                                    "transport",
+                                    "reloadcerts"
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "9202f26a-8ad6-4753-a833-442ee936c03a",
+                                  "name": "Transport certificates reloaded.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/_plugins/_security/api/ssl/transport/reloadcerts",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "_plugins",
+                                        "_security",
+                                        "api",
+                                        "ssl",
+                                        "transport",
+                                        "reloadcerts"
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-21T20:50:15.000Z",
+                                  "updatedAt": "2026-10-21T20:50:15.000Z",
+                                  "uid": "35240-9202f26a-8ad6-4753-a833-442ee936c03a"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:50:15.000Z",
+                              "updatedAt": "2026-10-21T20:50:15.000Z",
+                              "uid": "35240-de567e33-bfb9-43aa-b972-43848a908ece"
+                            }
+                          ],
+                          "id": "0cba60ae-7b6f-4547-8eb4-ecfc5f679108",
+                          "createdAt": "2026-10-21T20:50:15.000Z",
+                          "updatedAt": "2026-10-21T20:50:15.000Z",
+                          "uid": "35240-0cba60ae-7b6f-4547-8eb4-ecfc5f679108"
+                        }
+                      ],
+                      "id": "b63680ee-8cb9-416b-ab5e-145615034fc6",
+                      "createdAt": "2026-10-21T20:50:15.000Z",
+                      "updatedAt": "2026-10-21T20:50:15.000Z",
+                      "uid": "35240-b63680ee-8cb9-416b-ab5e-145615034fc6"
+                    },
+                    {
+                      "name": "http",
+                      "item": [
+                        {
+                          "name": "reloadcerts",
+                          "item": [
+                            {
+                              "name": "Reload HTTP-layer SSL certificates",
+                              "id": "4505b025-955e-4d3c-bdc7-181616c204e3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/ssl/http/reloadcerts",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "ssl",
+                                    "http",
+                                    "reloadcerts"
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "56be7930-46ec-4426-a438-609f8a9a1d11",
+                                  "name": "HTTP certificates reloaded.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/_plugins/_security/api/ssl/http/reloadcerts",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "_plugins",
+                                        "_security",
+                                        "api",
+                                        "ssl",
+                                        "http",
+                                        "reloadcerts"
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-21T20:50:15.000Z",
+                                  "updatedAt": "2026-10-21T20:50:15.000Z",
+                                  "uid": "35240-56be7930-46ec-4426-a438-609f8a9a1d11"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:50:15.000Z",
+                              "updatedAt": "2026-10-21T20:50:15.000Z",
+                              "uid": "35240-4505b025-955e-4d3c-bdc7-181616c204e3"
+                            }
+                          ],
+                          "id": "95c8cdd7-b535-42cc-832c-11e4b0446d2a",
+                          "createdAt": "2026-10-21T20:50:15.000Z",
+                          "updatedAt": "2026-10-21T20:50:15.000Z",
+                          "uid": "35240-95c8cdd7-b535-42cc-832c-11e4b0446d2a"
+                        }
+                      ],
+                      "id": "45debe0e-569d-4d07-a71a-d12117d7b669",
+                      "createdAt": "2026-10-21T20:50:15.000Z",
+                      "updatedAt": "2026-10-21T20:50:15.000Z",
+                      "uid": "35240-45debe0e-569d-4d07-a71a-d12117d7b669"
+                    }
+                  ],
+                  "id": "22728fff-ebb5-4493-a270-91ba384ae258",
+                  "createdAt": "2026-10-21T20:50:15.000Z",
+                  "updatedAt": "2026-10-21T20:50:15.000Z",
+                  "uid": "35240-22728fff-ebb5-4493-a270-91ba384ae258"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "81664cbf-bd39-49cb-9156-6d9aa1122376",
+              "createdAt": "2026-10-21T20:50:15.000Z",
+              "updatedAt": "2026-10-21T20:50:15.000Z",
+              "uid": "35240-81664cbf-bd39-49cb-9156-6d9aa1122376"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c3c2001d-0725-4a3b-bcc9-12c39737eafe",
-          "name": "Reload transport-layer SSL certificates",
-          "request": {
-            "name": "Reload transport-layer SSL certificates",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "ssl",
-                "transport",
-                "reloadcerts"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "13e0e60e-23cf-49d6-9307-160ad8f013e7",
-              "name": "Transport certificates reloaded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "ssl",
-                    "transport",
-                    "reloadcerts"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "83ae4daa-13e9-41a7-b0a9-a05a3303ab9a",
-          "name": "Reload HTTP-layer SSL certificates",
-          "request": {
-            "name": "Reload HTTP-layer SSL certificates",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "ssl",
-                "http",
-                "reloadcerts"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "326521d8-1049-427d-82fb-3cd0d9f57f86",
-              "name": "HTTP certificates reloaded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "ssl",
-                    "http",
-                    "reloadcerts"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7bd95208-9df9-4565-8169-5328b04e2e1e",
+          "createdAt": "2026-10-21T20:50:15.000Z",
+          "updatedAt": "2026-10-21T20:50:15.000Z",
+          "uid": "35240-7bd95208-9df9-4565-8169-5328b04e2e1e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "1e196abe-7454-48ad-87d8-63bfb0f05a04",
+      "createdAt": "2026-10-21T20:50:15.000Z",
+      "updatedAt": "2026-10-21T20:50:15.000Z",
+      "uid": "35240-1e196abe-7454-48ad-87d8-63bfb0f05a04"
     }
   ],
   "auth": {
@@ -317,21 +299,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "fd83f75f-b20a-463a-8a35-41b7a7ab2700",
-    "name": "OpenSearch Security Plugin REST Account Certificates API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

@@ -1,353 +1,311 @@
 {
+  "info": {
+    "_postman_id": "e278d29f-50e4-4a47-ac90-e2192d8499ed",
+    "name": "OpenSearch Security Plugin REST Security Config API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:50:55.000Z",
+    "updatedAt": "2026-10-21T20:50:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e278d29f-50e4-4a47-ac90-e2192d8499ed"
+  },
   "item": [
     {
-      "id": "eb93200f-8d50-49a3-94e5-73c26829b677",
-      "name": "Security Config",
-      "description": {
-        "content": "Inspect and update the running security configuration.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "8c654be1-fa4d-42b9-ab21-80e1ee84ed3a",
-          "name": "Get security configuration",
-          "request": {
-            "name": "Get security configuration",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "securityconfig"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "84f0026c-661f-4b0e-a60e-1eba97373f62",
-              "name": "Current security configuration.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "securityconfig"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "securityconfig",
+                  "item": [
+                    {
+                      "name": "config",
+                      "item": [
+                        {
+                          "name": "Replace security configuration",
+                          "id": "681d53ca-5482-4016-8c6a-c1cc05929d8a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/securityconfig/config",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "securityconfig",
+                                "config"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e7d1ead9-2fad-4657-9aa5-9ece571d64b7",
+                              "name": "Security configuration replaced.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/securityconfig/config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "securityconfig",
+                                    "config"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:55.000Z",
+                              "updatedAt": "2026-10-21T20:50:55.000Z",
+                              "uid": "35240-e7d1ead9-2fad-4657-9aa5-9ece571d64b7"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:55.000Z",
+                          "updatedAt": "2026-10-21T20:50:55.000Z",
+                          "uid": "35240-681d53ca-5482-4016-8c6a-c1cc05929d8a"
+                        }
+                      ],
+                      "id": "4bb12d4d-c9e9-4a68-a978-fe8ba3bf5853",
+                      "createdAt": "2026-10-21T20:50:55.000Z",
+                      "updatedAt": "2026-10-21T20:50:55.000Z",
+                      "uid": "35240-4bb12d4d-c9e9-4a68-a978-fe8ba3bf5853"
+                    },
+                    {
+                      "name": "Get security configuration",
+                      "id": "58997c49-0ad5-4cfb-8376-968bf2c3d6df",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/securityconfig",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "securityconfig"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9491490f-f830-468c-b894-41966b012c5c",
+                          "name": "Current security configuration.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/securityconfig",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "securityconfig"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:50:55.000Z",
+                          "updatedAt": "2026-10-21T20:50:55.000Z",
+                          "uid": "35240-9491490f-f830-468c-b894-41966b012c5c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:50:55.000Z",
+                      "updatedAt": "2026-10-21T20:50:55.000Z",
+                      "uid": "35240-58997c49-0ad5-4cfb-8376-968bf2c3d6df"
+                    },
+                    {
+                      "name": "Patch security configuration",
+                      "id": "ec743b21-ecbd-4a31-aecc-e2a07aca7372",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/securityconfig",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "securityconfig"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "27ed401d-1944-468e-bccc-003a770098dd",
+                          "name": "Security configuration patched.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/securityconfig",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "securityconfig"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:50:55.000Z",
+                          "updatedAt": "2026-10-21T20:50:55.000Z",
+                          "uid": "35240-27ed401d-1944-468e-bccc-003a770098dd"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:50:55.000Z",
+                      "updatedAt": "2026-10-21T20:50:55.000Z",
+                      "uid": "35240-ec743b21-ecbd-4a31-aecc-e2a07aca7372"
+                    }
+                  ],
+                  "id": "84efe86c-4952-4fa0-a985-659a05ecf76f",
+                  "createdAt": "2026-10-21T20:50:55.000Z",
+                  "updatedAt": "2026-10-21T20:50:55.000Z",
+                  "uid": "35240-84efe86c-4952-4fa0-a985-659a05ecf76f"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "351e48f8-c691-4345-92a6-1f4d0bc52191",
+              "createdAt": "2026-10-21T20:50:55.000Z",
+              "updatedAt": "2026-10-21T20:50:55.000Z",
+              "uid": "35240-351e48f8-c691-4345-92a6-1f4d0bc52191"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "23a33d00-4803-4077-ac43-a964412c6210",
-          "name": "Patch security configuration",
-          "request": {
-            "name": "Patch security configuration",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "securityconfig"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "05bfc933-487a-4ab0-a8f8-885d881e17ff",
-              "name": "Security configuration patched.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "securityconfig"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8f2d45f5-e095-419a-8fd9-2dd238c10d4a",
-          "name": "Replace security configuration",
-          "request": {
-            "name": "Replace security configuration",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "securityconfig",
-                "config"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "<object>",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "bd621ba2-746f-44e0-9ee7-6f93bde105ef",
-              "name": "Security configuration replaced.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "securityconfig",
-                    "config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "6bd3bb02-8301-44d9-b0e3-71f81e2e337e",
+          "createdAt": "2026-10-21T20:50:55.000Z",
+          "updatedAt": "2026-10-21T20:50:55.000Z",
+          "uid": "35240-6bd3bb02-8301-44d9-b0e3-71f81e2e337e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "435f629d-f8cc-43a5-968a-4dff443c40fc",
+      "createdAt": "2026-10-21T20:50:55.000Z",
+      "updatedAt": "2026-10-21T20:50:55.000Z",
+      "uid": "35240-435f629d-f8cc-43a5-968a-4dff443c40fc"
     }
   ],
   "auth": {
@@ -355,21 +313,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "469a21bb-26e0-4bb8-a326-7c02350273bb",
-    "name": "OpenSearch Security Plugin REST Account Security Config API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

@@ -1,597 +1,497 @@
 {
+  "info": {
+    "_postman_id": "1c3b4bda-0e98-4190-af29-9c2e8b32f770",
+    "name": "OpenSearch Security Plugin REST Internal Users API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:50:28.000Z",
+    "updatedAt": "2026-10-21T20:50:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1c3b4bda-0e98-4190-af29-9c2e8b32f770"
+  },
   "item": [
     {
-      "id": "dbce04ba-fb62-4199-bcfc-e01013ca2044",
-      "name": "Internal Users",
-      "description": {
-        "content": "CRUD for internal user database entries.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "d3a6ebb5-58a6-48f6-893e-459fe7dcc2e9",
-          "name": "List all internal users",
-          "request": {
-            "name": "List all internal users",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "internalusers"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "9c534712-ab35-420b-97ac-f7b8d66a1e7d",
-              "name": "Map of all internal users.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "internalusers"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "internalusers",
+                  "item": [
+                    {
+                      "name": "{username}",
+                      "item": [
+                        {
+                          "name": "Get internal user",
+                          "id": "48110af0-9d3d-462d-8b3e-0eb5094334f2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "internalusers",
+                                ":username"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0afeac23-92cd-43e9-bbd9-1cfab3c35ee5",
+                                  "key": "username",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "7b6af090-9189-4b64-8926-5592cf7e417d",
+                              "name": "Internal user definition.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "internalusers",
+                                    ":username"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "username"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:29.000Z",
+                              "updatedAt": "2026-10-21T20:50:29.000Z",
+                              "uid": "35240-7b6af090-9189-4b64-8926-5592cf7e417d"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:29.000Z",
+                          "updatedAt": "2026-10-21T20:50:29.000Z",
+                          "uid": "35240-48110af0-9d3d-462d-8b3e-0eb5094334f2"
+                        },
+                        {
+                          "name": "Create or replace an internal user",
+                          "id": "24cad29a-86ad-470e-a6db-8b5a63f3e43c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"password\": \"<string>\",\n  \"hash\": \"<string>\",\n  \"backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": {\n    \"proident_6\": \"<string>\"\n  },\n  \"opendistro_security_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "internalusers",
+                                ":username"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a291f443-ee51-4ff5-a1ee-363c96024241",
+                                  "key": "username",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "424a3af9-cf2c-4596-9238-ffd79d4c5a12",
+                              "name": "User created or updated.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"password\": \"<string>\",\n  \"hash\": \"<string>\",\n  \"backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": {\n    \"proident_6\": \"<string>\"\n  },\n  \"opendistro_security_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "internalusers",
+                                    ":username"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "username"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:29.000Z",
+                              "updatedAt": "2026-10-21T20:50:29.000Z",
+                              "uid": "35240-424a3af9-cf2c-4596-9238-ffd79d4c5a12"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:29.000Z",
+                          "updatedAt": "2026-10-21T20:50:29.000Z",
+                          "uid": "35240-24cad29a-86ad-470e-a6db-8b5a63f3e43c"
+                        },
+                        {
+                          "name": "Delete internal user",
+                          "id": "ef057100-68e7-43e5-a984-2608d6c113f9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "internalusers",
+                                ":username"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3b1244b7-4ce8-449e-9c79-e207f1458023",
+                                  "key": "username",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "43ffd092-1cbc-4e86-9d5d-9acc0f9fed91",
+                              "name": "User deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "internalusers",
+                                    ":username"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "username"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:29.000Z",
+                              "updatedAt": "2026-10-21T20:50:29.000Z",
+                              "uid": "35240-43ffd092-1cbc-4e86-9d5d-9acc0f9fed91"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:29.000Z",
+                          "updatedAt": "2026-10-21T20:50:29.000Z",
+                          "uid": "35240-ef057100-68e7-43e5-a984-2608d6c113f9"
+                        },
+                        {
+                          "name": "Patch internal user",
+                          "id": "5e708874-3dcf-4ba8-9d5f-f16f1e670baa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "internalusers",
+                                ":username"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4bf790b7-37de-495d-be81-20d512067dfd",
+                                  "key": "username",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "56fdb256-c8a3-4d2b-8f82-b4d4a4d15f9a",
+                              "name": "User patched.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "[]",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/internalusers/:username",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "internalusers",
+                                    ":username"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "username"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:29.000Z",
+                              "updatedAt": "2026-10-21T20:50:29.000Z",
+                              "uid": "35240-56fdb256-c8a3-4d2b-8f82-b4d4a4d15f9a"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:29.000Z",
+                          "updatedAt": "2026-10-21T20:50:29.000Z",
+                          "uid": "35240-5e708874-3dcf-4ba8-9d5f-f16f1e670baa"
+                        }
+                      ],
+                      "id": "ea1ca192-ac2f-41ff-9084-1231da7e7e9a",
+                      "createdAt": "2026-10-21T20:50:29.000Z",
+                      "updatedAt": "2026-10-21T20:50:29.000Z",
+                      "uid": "35240-ea1ca192-ac2f-41ff-9084-1231da7e7e9a"
+                    },
+                    {
+                      "name": "List all internal users",
+                      "id": "adb835fb-7419-4280-9d50-2aa973bdc0db",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/internalusers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "internalusers"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0c692f59-8521-4054-961a-82893bd9b650",
+                          "name": "Map of all internal users.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/internalusers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "internalusers"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:50:29.000Z",
+                          "updatedAt": "2026-10-21T20:50:29.000Z",
+                          "uid": "35240-0c692f59-8521-4054-961a-82893bd9b650"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:50:29.000Z",
+                      "updatedAt": "2026-10-21T20:50:29.000Z",
+                      "uid": "35240-adb835fb-7419-4280-9d50-2aa973bdc0db"
+                    }
+                  ],
+                  "id": "23d56887-e70b-40ff-ae12-4af0de5fc6da",
+                  "createdAt": "2026-10-21T20:50:29.000Z",
+                  "updatedAt": "2026-10-21T20:50:29.000Z",
+                  "uid": "35240-23d56887-e70b-40ff-ae12-4af0de5fc6da"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "c180228a-0f5e-461f-9622-aed866a83dba",
+              "createdAt": "2026-10-21T20:50:29.000Z",
+              "updatedAt": "2026-10-21T20:50:29.000Z",
+              "uid": "35240-c180228a-0f5e-461f-9622-aed866a83dba"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "02217479-5e5c-40f6-a82e-aa5b26c89f4c",
-          "name": "Get internal user",
-          "request": {
-            "name": "Get internal user",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "internalusers",
-                ":username"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "20e0a70d-a739-43b8-9a35-d3d8c1a21b63",
-              "name": "Internal user definition.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "internalusers",
-                    ":username"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e52acd4d-7199-4a88-85be-fb2388edc073",
-          "name": "Create or replace an internal user",
-          "request": {
-            "name": "Create or replace an internal user",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "internalusers",
-                ":username"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"password\": \"<string>\",\n  \"hash\": \"<string>\",\n  \"backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"opendistro_security_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "d01fde34-f65f-47af-bb5c-19d3c4546532",
-              "name": "User created or updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "internalusers",
-                    ":username"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"password\": \"<string>\",\n  \"hash\": \"<string>\",\n  \"backend_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": {\n    \"key_0\": \"<string>\"\n  },\n  \"opendistro_security_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3888e2ea-fcb6-4d8b-8640-488219eb2d82",
-          "name": "Delete internal user",
-          "request": {
-            "name": "Delete internal user",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "internalusers",
-                ":username"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3ef959a0-d4f4-4657-869e-a59e565f3872",
-              "name": "User deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "internalusers",
-                    ":username"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d5df59f5-411a-4b85-b97e-ba133c64a876",
-          "name": "Patch internal user",
-          "request": {
-            "name": "Patch internal user",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "internalusers",
-                ":username"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "fb5ee21f-caf5-40ce-8be8-29dd6cb38599",
-              "name": "User patched.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "internalusers",
-                    ":username"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e2c5a273-0878-421a-a762-7a84fbad5f8d",
+          "createdAt": "2026-10-21T20:50:29.000Z",
+          "updatedAt": "2026-10-21T20:50:29.000Z",
+          "uid": "35240-e2c5a273-0878-421a-a762-7a84fbad5f8d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "f32f5bf7-fae0-4492-8e12-d960e74337b1",
+      "createdAt": "2026-10-21T20:50:29.000Z",
+      "updatedAt": "2026-10-21T20:50:29.000Z",
+      "uid": "35240-f32f5bf7-fae0-4492-8e12-d960e74337b1"
     }
   ],
   "auth": {
@@ -599,21 +499,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d0866893-c042-4b0a-9494-709246fd4507",
-    "name": "OpenSearch Security Plugin REST Account Internal Users API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

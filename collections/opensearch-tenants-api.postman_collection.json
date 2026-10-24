@@ -1,597 +1,497 @@
 {
+  "info": {
+    "_postman_id": "0f96c0f6-414d-4386-a125-8fb8bcc80afc",
+    "name": "OpenSearch Security Plugin REST Tenants API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:51:08.000Z",
+    "updatedAt": "2026-10-21T20:51:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0f96c0f6-414d-4386-a125-8fb8bcc80afc"
+  },
   "item": [
     {
-      "id": "2d98ba97-c5c9-4f9a-9971-468322f83000",
-      "name": "Tenants",
-      "description": {
-        "content": "Multi-tenancy support for OpenSearch Dashboards.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "b4e289bc-1eaf-4e35-8dec-545aa5e1cda9",
-          "name": "List all tenants",
-          "request": {
-            "name": "List all tenants",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "tenants"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "823cb741-cd9c-42c1-ba70-314170e8fe56",
-              "name": "All tenants.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "tenants"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "tenants",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Get tenant",
+                          "id": "4a8f129e-7b15-4859-9a9e-27adac54b340",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "tenants",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f0aaa49e-00cb-4dff-a27c-7ab3d2767a4f",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "76beb059-087d-48e8-a5a0-bd7c9ecd5a02",
+                              "name": "Tenant definition.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "tenants",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:51:09.000Z",
+                              "updatedAt": "2026-10-21T20:51:09.000Z",
+                              "uid": "35240-76beb059-087d-48e8-a5a0-bd7c9ecd5a02"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:51:09.000Z",
+                          "updatedAt": "2026-10-21T20:51:09.000Z",
+                          "uid": "35240-4a8f129e-7b15-4859-9a9e-27adac54b340"
+                        },
+                        {
+                          "name": "Create or replace a tenant",
+                          "id": "36031f69-597d-4538-b2fc-4e5dd2ef0e76",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "tenants",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "20edf9db-904d-440c-bd08-ab85d57294af",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e33fa443-6d21-4942-b250-2aef9fc64247",
+                              "name": "Tenant created or updated.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"description\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "tenants",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:51:09.000Z",
+                              "updatedAt": "2026-10-21T20:51:09.000Z",
+                              "uid": "35240-e33fa443-6d21-4942-b250-2aef9fc64247"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:51:09.000Z",
+                          "updatedAt": "2026-10-21T20:51:09.000Z",
+                          "uid": "35240-36031f69-597d-4538-b2fc-4e5dd2ef0e76"
+                        },
+                        {
+                          "name": "Delete tenant",
+                          "id": "dc5aff22-dee4-43de-8777-8517f7ee53d0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "tenants",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3266b739-ba8a-421f-9e86-f8bc5db0612d",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "963b5f1d-132e-4584-9016-b06daa371e5b",
+                              "name": "Tenant deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "tenants",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:51:09.000Z",
+                              "updatedAt": "2026-10-21T20:51:09.000Z",
+                              "uid": "35240-963b5f1d-132e-4584-9016-b06daa371e5b"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:51:09.000Z",
+                          "updatedAt": "2026-10-21T20:51:09.000Z",
+                          "uid": "35240-dc5aff22-dee4-43de-8777-8517f7ee53d0"
+                        },
+                        {
+                          "name": "Patch tenant",
+                          "id": "0f2d09ba-94af-4224-99fe-0fb0fd28912c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "tenants",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ca7032dd-8b3d-469d-9027-fd7d7032979f",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f99e6afc-ade9-4e7a-bcc8-21d280fca323",
+                              "name": "Tenant patched.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "[]",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/tenants/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "tenants",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:51:09.000Z",
+                              "updatedAt": "2026-10-21T20:51:09.000Z",
+                              "uid": "35240-f99e6afc-ade9-4e7a-bcc8-21d280fca323"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:51:09.000Z",
+                          "updatedAt": "2026-10-21T20:51:09.000Z",
+                          "uid": "35240-0f2d09ba-94af-4224-99fe-0fb0fd28912c"
+                        }
+                      ],
+                      "id": "408a7fcf-eb02-44fe-8f4f-4782357a7251",
+                      "createdAt": "2026-10-21T20:51:09.000Z",
+                      "updatedAt": "2026-10-21T20:51:09.000Z",
+                      "uid": "35240-408a7fcf-eb02-44fe-8f4f-4782357a7251"
+                    },
+                    {
+                      "name": "List all tenants",
+                      "id": "c25aa2bd-cd56-4907-9dec-32ddcf4ac38e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/tenants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "tenants"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9989fae7-4665-4e49-ac4b-7c5a6ab7f1ae",
+                          "name": "All tenants.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/tenants",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "tenants"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:51:09.000Z",
+                          "updatedAt": "2026-10-21T20:51:09.000Z",
+                          "uid": "35240-9989fae7-4665-4e49-ac4b-7c5a6ab7f1ae"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:51:09.000Z",
+                      "updatedAt": "2026-10-21T20:51:09.000Z",
+                      "uid": "35240-c25aa2bd-cd56-4907-9dec-32ddcf4ac38e"
+                    }
+                  ],
+                  "id": "1c7b005f-c162-4073-bfe8-2b2ea5fa7412",
+                  "createdAt": "2026-10-21T20:51:09.000Z",
+                  "updatedAt": "2026-10-21T20:51:09.000Z",
+                  "uid": "35240-1c7b005f-c162-4073-bfe8-2b2ea5fa7412"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "0a71ad6b-75b3-4204-ba64-62da66a57bb2",
+              "createdAt": "2026-10-21T20:51:09.000Z",
+              "updatedAt": "2026-10-21T20:51:09.000Z",
+              "uid": "35240-0a71ad6b-75b3-4204-ba64-62da66a57bb2"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b68fe620-f35d-4d6e-951b-9b3a37a41a0a",
-          "name": "Get tenant",
-          "request": {
-            "name": "Get tenant",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "tenants",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6dd32429-5faa-4a98-8d39-4a6d3c2aa02d",
-              "name": "Tenant definition.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "tenants",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4cb0f409-35b0-4c7a-b961-78404f5d659e",
-          "name": "Create or replace a tenant",
-          "request": {
-            "name": "Create or replace a tenant",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "tenants",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e4aa3cd2-09a6-48ec-9e32-362b6ba78621",
-              "name": "Tenant created or updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "tenants",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "97e728c4-aadb-440a-b675-d5b165829ded",
-          "name": "Delete tenant",
-          "request": {
-            "name": "Delete tenant",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "tenants",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7b4b36bd-bd65-4484-8630-3ef86b691c00",
-              "name": "Tenant deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "tenants",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ff5f4faf-84d1-4068-bdf3-8be757a0c12d",
-          "name": "Patch tenant",
-          "request": {
-            "name": "Patch tenant",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "tenants",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "1900c3ca-545c-4fe6-8b7f-d3a9c59cae23",
-              "name": "Tenant patched.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "tenants",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "3b849db2-b444-40dc-b768-c9cbb7ddcfbd",
+          "createdAt": "2026-10-21T20:51:09.000Z",
+          "updatedAt": "2026-10-21T20:51:09.000Z",
+          "uid": "35240-3b849db2-b444-40dc-b768-c9cbb7ddcfbd"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "b5a333ef-a06f-4e88-9cbe-f57c85bbe09a",
+      "createdAt": "2026-10-21T20:51:09.000Z",
+      "updatedAt": "2026-10-21T20:51:09.000Z",
+      "uid": "35240-b5a333ef-a06f-4e88-9cbe-f57c85bbe09a"
     }
   ],
   "auth": {
@@ -599,21 +499,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "48246378-a11a-4f1d-9ab0-b1dcf058836c",
-    "name": "OpenSearch Security Plugin REST Account Tenants API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

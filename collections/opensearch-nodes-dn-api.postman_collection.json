@@ -1,467 +1,389 @@
 {
+  "info": {
+    "_postman_id": "28fc61ac-7b60-4473-92cd-5c8bd5531ed6",
+    "name": "OpenSearch Security Plugin REST Nodes DN API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:50:33.000Z",
+    "updatedAt": "2026-10-21T20:50:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-28fc61ac-7b60-4473-92cd-5c8bd5531ed6"
+  },
   "item": [
     {
-      "id": "ca10ccd7-a983-4f3e-848f-b2a78d576dee",
-      "name": "Nodes DN",
-      "description": {
-        "content": "Allowlisted distinguished names for cross-cluster nodes.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "1c090a6a-09a9-4809-97ec-6112e6744ce5",
-          "name": "List all node DN entries",
-          "request": {
-            "name": "List all node DN entries",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "nodesdn"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "bcc8eb48-e6b2-4590-8514-36a149d93b9a",
-              "name": "All node DN entries.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "nodesdn"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "nodesdn",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Get node DN entry",
+                          "id": "4158c6ec-5dc2-4967-99ed-8e330e09bd23",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "nodesdn",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "28ee3c0a-d8a6-485e-90b0-c9258f61cac3",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "edf2753d-add1-4ca0-989d-941b1cdfcc98",
+                              "name": "Node DN entry.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "nodesdn",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:34.000Z",
+                              "updatedAt": "2026-10-21T20:50:34.000Z",
+                              "uid": "35240-edf2753d-add1-4ca0-989d-941b1cdfcc98"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:34.000Z",
+                          "updatedAt": "2026-10-21T20:50:34.000Z",
+                          "uid": "35240-4158c6ec-5dc2-4967-99ed-8e330e09bd23"
+                        },
+                        {
+                          "name": "Create or replace node DN entry",
+                          "id": "4e80fa6c-22a9-409d-85e0-cea220393d13",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "nodesdn",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2c19c61f-8014-49ff-ad9d-27fc92692ba0",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "be4d5faf-2cca-4fc3-baae-e41e089cd752",
+                              "name": "Node DN created or updated.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "nodesdn",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:34.000Z",
+                              "updatedAt": "2026-10-21T20:50:34.000Z",
+                              "uid": "35240-be4d5faf-2cca-4fc3-baae-e41e089cd752"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:34.000Z",
+                          "updatedAt": "2026-10-21T20:50:34.000Z",
+                          "uid": "35240-4e80fa6c-22a9-409d-85e0-cea220393d13"
+                        },
+                        {
+                          "name": "Delete node DN entry",
+                          "id": "117f4af1-f332-497a-bcf5-3125af7a0791",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "nodesdn",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fe64ccd5-40d4-4627-91d0-95036f737f83",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "ca5f6c79-caa0-4eba-a64e-52adc654e5d3",
+                              "name": "Node DN deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "nodesdn",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:34.000Z",
+                              "updatedAt": "2026-10-21T20:50:34.000Z",
+                              "uid": "35240-ca5f6c79-caa0-4eba-a64e-52adc654e5d3"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:34.000Z",
+                          "updatedAt": "2026-10-21T20:50:34.000Z",
+                          "uid": "35240-117f4af1-f332-497a-bcf5-3125af7a0791"
+                        }
+                      ],
+                      "id": "a9d6d983-02ab-43a5-aca8-8a49d1c8bd5c",
+                      "createdAt": "2026-10-21T20:50:34.000Z",
+                      "updatedAt": "2026-10-21T20:50:34.000Z",
+                      "uid": "35240-a9d6d983-02ab-43a5-aca8-8a49d1c8bd5c"
+                    },
+                    {
+                      "name": "List all node DN entries",
+                      "id": "d7ac11cb-f1cb-4e27-bdb7-1ed7fa84a169",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "nodesdn"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0fd368f4-cb8c-4e92-890c-5654048f2374",
+                          "name": "All node DN entries.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/nodesdn",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "nodesdn"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:50:34.000Z",
+                          "updatedAt": "2026-10-21T20:50:34.000Z",
+                          "uid": "35240-0fd368f4-cb8c-4e92-890c-5654048f2374"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:50:34.000Z",
+                      "updatedAt": "2026-10-21T20:50:34.000Z",
+                      "uid": "35240-d7ac11cb-f1cb-4e27-bdb7-1ed7fa84a169"
+                    }
+                  ],
+                  "id": "03caae02-2841-4760-bdf9-87fd0c81af96",
+                  "createdAt": "2026-10-21T20:50:34.000Z",
+                  "updatedAt": "2026-10-21T20:50:34.000Z",
+                  "uid": "35240-03caae02-2841-4760-bdf9-87fd0c81af96"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "b3093c23-1400-4682-8d2e-fd92a5df1050",
+              "createdAt": "2026-10-21T20:50:34.000Z",
+              "updatedAt": "2026-10-21T20:50:34.000Z",
+              "uid": "35240-b3093c23-1400-4682-8d2e-fd92a5df1050"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2d4c7c41-0992-4ea4-8e9d-89facc6d73a9",
-          "name": "Get node DN entry",
-          "request": {
-            "name": "Get node DN entry",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "nodesdn",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7d0a3e45-817a-4214-9f91-29ed0e5bece8",
-              "name": "Node DN entry.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "nodesdn",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6b5beb80-b0ec-4401-814a-591a579be327",
-          "name": "Create or replace node DN entry",
-          "request": {
-            "name": "Create or replace node DN entry",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "nodesdn",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "<object>",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "93364a2b-a487-4641-80f0-e13695b77953",
-              "name": "Node DN created or updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "nodesdn",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a8128aea-6dd5-4bc3-a38f-8a8b68a3ba3b",
-          "name": "Delete node DN entry",
-          "request": {
-            "name": "Delete node DN entry",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "nodesdn",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6663a076-25f4-42d0-b3b1-4c57f5d8d949",
-              "name": "Node DN deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "nodesdn",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "938c42b7-54a6-4358-80eb-2e2baff3bb97",
+          "createdAt": "2026-10-21T20:50:34.000Z",
+          "updatedAt": "2026-10-21T20:50:34.000Z",
+          "uid": "35240-938c42b7-54a6-4358-80eb-2e2baff3bb97"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "69e1d5ee-688d-4e1e-b8a9-6b49bb1d914a",
+      "createdAt": "2026-10-21T20:50:34.000Z",
+      "updatedAt": "2026-10-21T20:50:34.000Z",
+      "uid": "35240-69e1d5ee-688d-4e1e-b8a9-6b49bb1d914a"
     }
   ],
   "auth": {
@@ -469,21 +391,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "3593fb61-b5d2-4746-935b-517c277e2aca",
-    "name": "OpenSearch Security Plugin REST Account Nodes DN API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

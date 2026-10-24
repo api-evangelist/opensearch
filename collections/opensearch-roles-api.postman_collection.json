@@ -1,597 +1,497 @@
 {
+  "info": {
+    "_postman_id": "d0594f74-2f2b-489e-8d80-f322f8733ecd",
+    "name": "OpenSearch Security Plugin REST Roles API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:50:46.000Z",
+    "updatedAt": "2026-10-21T20:50:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d0594f74-2f2b-489e-8d80-f322f8733ecd"
+  },
   "item": [
     {
-      "id": "dce10747-b1ea-4b97-bc27-004d6c90a0e0",
-      "name": "Roles",
-      "description": {
-        "content": "CRUD for security roles and their permissions.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "d6dcb23a-ee69-4e62-9666-760008cc2d5b",
-          "name": "List all roles",
-          "request": {
-            "name": "List all roles",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "roles"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "479e7178-2487-4140-85a6-c0f555894431",
-              "name": "All roles.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "roles"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "roles",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Get role",
+                          "id": "cf983738-f6ec-485b-8206-a6a04a447d21",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "roles",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a670a8c6-4edc-4971-94f4-89ef8aa2262d",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "dcc3e55f-901e-4cb4-90b8-47248f52d356",
+                              "name": "Role definition.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "roles",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:46.000Z",
+                              "updatedAt": "2026-10-21T20:50:46.000Z",
+                              "uid": "35240-dcc3e55f-901e-4cb4-90b8-47248f52d356"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:46.000Z",
+                          "updatedAt": "2026-10-21T20:50:46.000Z",
+                          "uid": "35240-cf983738-f6ec-485b-8206-a6a04a447d21"
+                        },
+                        {
+                          "name": "Create or replace a role",
+                          "id": "3fb66792-4f4c-4b0a-93fe-718520e68f9b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cluster_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"index_permissions\": [\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tenant_permissions\": [\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "roles",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8bc2f343-eef3-44b8-ba0e-fbb608e6f2ff",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "1a0dcea7-49be-44db-a2ef-95404096aa58",
+                              "name": "Role created or updated.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"cluster_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"index_permissions\": [\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tenant_permissions\": [\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "roles",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:46.000Z",
+                              "updatedAt": "2026-10-21T20:50:46.000Z",
+                              "uid": "35240-1a0dcea7-49be-44db-a2ef-95404096aa58"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:46.000Z",
+                          "updatedAt": "2026-10-21T20:50:46.000Z",
+                          "uid": "35240-3fb66792-4f4c-4b0a-93fe-718520e68f9b"
+                        },
+                        {
+                          "name": "Delete role",
+                          "id": "170f5563-25dc-4624-bf19-1150b97c9a4d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "roles",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4f121c84-0687-48d6-b495-05cf9a70e9e2",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "eb0a5034-488f-482f-8c17-0101b1c83dc4",
+                              "name": "Role deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "roles",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:46.000Z",
+                              "updatedAt": "2026-10-21T20:50:46.000Z",
+                              "uid": "35240-eb0a5034-488f-482f-8c17-0101b1c83dc4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:46.000Z",
+                          "updatedAt": "2026-10-21T20:50:46.000Z",
+                          "uid": "35240-170f5563-25dc-4624-bf19-1150b97c9a4d"
+                        },
+                        {
+                          "name": "Patch role",
+                          "id": "8efdd73c-c9a7-4be2-83cd-962178ce8e65",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "roles",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "464330ee-c05f-47de-b9dd-d16575638e2f",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b0ece263-1b94-4bef-bbff-a8bbdaada64a",
+                              "name": "Role patched.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "[]",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/_plugins/_security/api/roles/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "_plugins",
+                                    "_security",
+                                    "api",
+                                    "roles",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:50:46.000Z",
+                              "updatedAt": "2026-10-21T20:50:46.000Z",
+                              "uid": "35240-b0ece263-1b94-4bef-bbff-a8bbdaada64a"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:50:46.000Z",
+                          "updatedAt": "2026-10-21T20:50:46.000Z",
+                          "uid": "35240-8efdd73c-c9a7-4be2-83cd-962178ce8e65"
+                        }
+                      ],
+                      "id": "6a0b4773-908e-46ef-9f1c-bad9fff58d6a",
+                      "createdAt": "2026-10-21T20:50:46.000Z",
+                      "updatedAt": "2026-10-21T20:50:46.000Z",
+                      "uid": "35240-6a0b4773-908e-46ef-9f1c-bad9fff58d6a"
+                    },
+                    {
+                      "name": "List all roles",
+                      "id": "bbf71abe-b3d0-4953-85fd-0d9878f8e431",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "88e65dbc-ef46-4d8b-9cd6-e583f514b66b",
+                          "name": "All roles.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/roles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "roles"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:50:46.000Z",
+                          "updatedAt": "2026-10-21T20:50:46.000Z",
+                          "uid": "35240-88e65dbc-ef46-4d8b-9cd6-e583f514b66b"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:50:46.000Z",
+                      "updatedAt": "2026-10-21T20:50:46.000Z",
+                      "uid": "35240-bbf71abe-b3d0-4953-85fd-0d9878f8e431"
+                    }
+                  ],
+                  "id": "1cf2a38d-9fc8-41a0-9981-7f8682f67ad6",
+                  "createdAt": "2026-10-21T20:50:46.000Z",
+                  "updatedAt": "2026-10-21T20:50:46.000Z",
+                  "uid": "35240-1cf2a38d-9fc8-41a0-9981-7f8682f67ad6"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "51248bd1-71a8-4744-8e02-81f7daa85157",
+              "createdAt": "2026-10-21T20:50:46.000Z",
+              "updatedAt": "2026-10-21T20:50:46.000Z",
+              "uid": "35240-51248bd1-71a8-4744-8e02-81f7daa85157"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ce8a173d-edec-4c04-82c3-674858f415dd",
-          "name": "Get role",
-          "request": {
-            "name": "Get role",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "roles",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b791a6e9-2acb-414b-85d6-05c0ca0f6525",
-              "name": "Role definition.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "roles",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "465bf343-b72f-44b1-a083-1c1b3ef1e6be",
-          "name": "Create or replace a role",
-          "request": {
-            "name": "Create or replace a role",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "roles",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"cluster_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"index_permissions\": [\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tenant_permissions\": [\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"description\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "808aff4d-7e09-43e3-85bf-c51b492579d4",
-              "name": "Role created or updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "roles",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cluster_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"index_permissions\": [\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"index_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dls\": \"<string>\",\n      \"fls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"masked_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tenant_permissions\": [\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"tenant_patterns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowed_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"description\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6bbfb1dc-29b2-4242-bce6-d56f4b0ba83c",
-          "name": "Delete role",
-          "request": {
-            "name": "Delete role",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "roles",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bef93557-470d-4502-8179-d1883b368d68",
-              "name": "Role deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "roles",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f11874cb-0f21-4616-9b89-c3f2dd39c59a",
-          "name": "Patch role",
-          "request": {
-            "name": "Patch role",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "roles",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "68050041-90ed-430d-b4b9-c81ae1aa483b",
-              "name": "Role patched.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "roles",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "67557672-fc5a-4c82-a14a-bc452c7029e7",
+          "createdAt": "2026-10-21T20:50:46.000Z",
+          "updatedAt": "2026-10-21T20:50:46.000Z",
+          "uid": "35240-67557672-fc5a-4c82-a14a-bc452c7029e7"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "fab26da9-ec9f-423f-9863-58a9168c5cbe",
+      "createdAt": "2026-10-21T20:50:46.000Z",
+      "updatedAt": "2026-10-21T20:50:46.000Z",
+      "uid": "35240-fab26da9-ec9f-423f-9863-58a9168c5cbe"
     }
   ],
   "auth": {
@@ -599,21 +499,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "936f7530-22d9-47f8-9b37-c88b6d188f75",
-    "name": "OpenSearch Security Plugin REST Account Roles API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

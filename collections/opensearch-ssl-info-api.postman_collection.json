@@ -1,210 +1,174 @@
 {
+  "info": {
+    "_postman_id": "19d91566-e3c4-4899-9763-7140de5257b3",
+    "name": "OpenSearch Security Plugin REST SSL Info API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:51:01.000Z",
+    "updatedAt": "2026-10-21T20:51:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-19d91566-e3c4-4899-9763-7140de5257b3"
+  },
   "item": [
     {
-      "id": "3b2b9d6b-0f7a-4f05-a0d5-2bcc834e03f8",
-      "name": "SSL Info",
-      "description": {
-        "content": "Inspect SSL handshake information for the calling client.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "4cd9a7ae-dd5a-4650-8be8-5857f3d901e0",
-          "name": "Get authentication info for current request",
-          "request": {
-            "name": "Get authentication info for current request",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "authinfo"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "c2d7bd2b-96e8-405b-9b81-197ccde6aa55",
-              "name": "Authentication info.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "authinfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "authinfo",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "Get authentication info for current request",
+                  "id": "8eefe75c-91e1-4ecc-8281-4528fc6a4d78",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/_plugins/_security/authinfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_plugins",
+                        "_security",
+                        "authinfo"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4df10bd9-5063-44b3-9cdf-0717419a1f10",
+                      "name": "Authentication info.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/authinfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "authinfo"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:51:02.000Z",
+                      "updatedAt": "2026-10-21T20:51:02.000Z",
+                      "uid": "35240-4df10bd9-5063-44b3-9cdf-0717419a1f10"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:51:02.000Z",
+                  "updatedAt": "2026-10-21T20:51:02.000Z",
+                  "uid": "35240-8eefe75c-91e1-4ecc-8281-4528fc6a4d78"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "a0f5b948-8263-4922-9fd7-585d50873886",
+              "createdAt": "2026-10-21T20:51:01.000Z",
+              "updatedAt": "2026-10-21T20:51:01.000Z",
+              "uid": "35240-a0f5b948-8263-4922-9fd7-585d50873886"
+            },
+            {
+              "name": "sslinfo",
+              "item": [
+                {
+                  "name": "Get SSL handshake info for current request",
+                  "id": "1e5521f1-de6f-4129-8c48-d81abb7705df",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/_plugins/_security/sslinfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_plugins",
+                        "_security",
+                        "sslinfo"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4648cbc2-876d-4df0-9781-745b6cf5296c",
+                      "name": "SSL info.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/sslinfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "sslinfo"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:51:02.000Z",
+                      "updatedAt": "2026-10-21T20:51:02.000Z",
+                      "uid": "35240-4648cbc2-876d-4df0-9781-745b6cf5296c"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:51:02.000Z",
+                  "updatedAt": "2026-10-21T20:51:02.000Z",
+                  "uid": "35240-1e5521f1-de6f-4129-8c48-d81abb7705df"
+                }
+              ],
+              "id": "2ddd6f7e-2d04-4f39-a8e3-3daed5e626b9",
+              "createdAt": "2026-10-21T20:51:01.000Z",
+              "updatedAt": "2026-10-21T20:51:01.000Z",
+              "uid": "35240-2ddd6f7e-2d04-4f39-a8e3-3daed5e626b9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4d3ddde6-0fe6-484a-9f84-f4a4e1682a07",
-          "name": "Get SSL handshake info for current request",
-          "request": {
-            "name": "Get SSL handshake info for current request",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "sslinfo"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bc3bfcd6-e917-4500-85b8-7a97e84a08e8",
-              "name": "SSL info.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "sslinfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4fd6a45f-af8f-4d4c-bf20-d1e96024482e",
+          "createdAt": "2026-10-21T20:51:01.000Z",
+          "updatedAt": "2026-10-21T20:51:01.000Z",
+          "uid": "35240-4fd6a45f-af8f-4d4c-bf20-d1e96024482e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "7ae42e0a-4c61-438f-90b0-0d40654d2698",
+      "createdAt": "2026-10-21T20:51:01.000Z",
+      "updatedAt": "2026-10-21T20:51:01.000Z",
+      "uid": "35240-7ae42e0a-4c61-438f-90b0-0d40654d2698"
     }
   ],
   "auth": {
@@ -212,21 +176,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5e9b0333-b6d0-4628-9eb6-1e1dc8eac012",
-    "name": "OpenSearch Security Plugin REST Account SSL Info API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }

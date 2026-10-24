@@ -1,123 +1,114 @@
 {
+  "info": {
+    "_postman_id": "a04d9402-adef-43c1-8033-7f1c72ea7121",
+    "name": "OpenSearch Security Plugin REST Cache API",
+    "description": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:50:07.000Z",
+    "updatedAt": "2026-10-21T20:50:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a04d9402-adef-43c1-8033-7f1c72ea7121"
+  },
   "item": [
     {
-      "id": "caf7c129-2f1c-4db4-bd4c-6b3d4a98dc0b",
-      "name": "Cache",
-      "description": {
-        "content": "Manage the security cache.",
-        "type": "text/plain"
-      },
+      "name": "_plugins",
       "item": [
         {
-          "id": "732e8357-4e79-480c-abde-e97ae9f98ea2",
-          "name": "Flush security cache",
-          "request": {
-            "name": "Flush security cache",
-            "description": {},
-            "url": {
-              "path": [
-                "_plugins",
-                "_security",
-                "api",
-                "cache"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{cluster-host}}",
-                  "key": "cluster-host"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
+          "name": "_security",
+          "item": [
             {
-              "id": "a3ed0dbc-9756-4ce4-88aa-35baacfb9788",
-              "name": "Cache flushed.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "_plugins",
-                    "_security",
-                    "api",
-                    "cache"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{cluster-host}}",
-                      "key": "cluster-host"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "api",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "cache",
+                  "item": [
+                    {
+                      "name": "Flush security cache",
+                      "id": "0496699d-a7be-4064-8035-f038fb71a0e7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/_plugins/_security/api/cache",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_plugins",
+                            "_security",
+                            "api",
+                            "cache"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "80c93c6a-4537-463d-881e-4a245c3a2592",
+                          "name": "Cache flushed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/_plugins/_security/api/cache",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "_plugins",
+                                "_security",
+                                "api",
+                                "cache"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:50:08.000Z",
+                          "updatedAt": "2026-10-21T20:50:08.000Z",
+                          "uid": "35240-80c93c6a-4537-463d-881e-4a245c3a2592"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:50:07.000Z",
+                      "updatedAt": "2026-10-21T20:50:07.000Z",
+                      "uid": "35240-0496699d-a7be-4064-8035-f038fb71a0e7"
+                    }
+                  ],
+                  "id": "cadbe1a8-bd60-49ab-9955-24320e646189",
+                  "createdAt": "2026-10-21T20:50:07.000Z",
+                  "updatedAt": "2026-10-21T20:50:07.000Z",
+                  "uid": "35240-cadbe1a8-bd60-49ab-9955-24320e646189"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "adf86061-7cc3-4921-9f80-c34b5a2333c1",
+              "createdAt": "2026-10-21T20:50:07.000Z",
+              "updatedAt": "2026-10-21T20:50:07.000Z",
+              "uid": "35240-adf86061-7cc3-4921-9f80-c34b5a2333c1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "8c65ab40-9e10-4be8-9e17-859c0a99c86d",
+          "createdAt": "2026-10-21T20:50:07.000Z",
+          "updatedAt": "2026-10-21T20:50:07.000Z",
+          "uid": "35240-8c65ab40-9e10-4be8-9e17-859c0a99c86d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "localhost",
-      "key": "cluster-host"
-    },
-    {
-      "type": "string",
-      "value": "https://{{cluster-host}}:9200",
-      "key": "baseUrl"
+      "id": "cfe4d497-adce-48ef-839c-4926c31a6b23",
+      "createdAt": "2026-10-21T20:50:07.000Z",
+      "updatedAt": "2026-10-21T20:50:07.000Z",
+      "uid": "35240-cfe4d497-adce-48ef-839c-4926c31a6b23"
     }
   ],
   "auth": {
@@ -125,21 +116,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a318c30e-5805-4f5a-b9f6-9c7eb72af4f8",
-    "name": "OpenSearch Security Plugin REST Account Cache API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The OpenSearch Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, certificates, cache, allowlists, distinguished node names, and inspect the running security configuration. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster.\n\nContact Support:\n Name: OpenSearch Project",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "cluster-host",
+      "value": "localhost"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{cluster-host}}:9200"
     }
-  }
+  ]
 }
