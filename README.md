@@ -1,4 +1,4 @@
-# OpenSearch (opensearch)
+# OpenSearch
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,95 +66,190 @@
 
 OpenSearch is the open source, community-driven search, analytics, and observability suite (forked from Elasticsearch and Kibana) maintained under the Linux Foundation's OpenSearch Software Foundation. The platform exposes REST APIs across the search engine, the OpenSearch Dashboards UI, and a set of plugins. The Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, and SSL certificates.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/apis.yml)
+**Areas:** OpenSearch · Search · Analytics · Observability · Open Source · Security
 
-## Scope
+## OpenSearch on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for OpenSearch is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/opensearch/](https://apis.io/providers/opensearch/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (15)
 
-- Search
-- Analytics
-- Observability
-- Open Source
-- Security
+- [OpenSearch Search and Indexing REST API](https://apis.io/apis/opensearch/opensearch-search-api/) — The core OpenSearch REST API for indexing documents, performing search queries (full text, vector, hybrid), aggregations, and managing indices, mappings,…
+- [OpenSearch Account API](https://apis.io/apis/opensearch/opensearch-account-api/) — Self-service account endpoints for the calling user.
+- [OpenSearch Action Groups API](https://apis.io/apis/opensearch/opensearch-action-groups-api/) — Reusable groups of cluster and index permissions.
+- [OpenSearch Allowlist API](https://apis.io/apis/opensearch/opensearch-allowlist-api/) — Allowlist of HTTP APIs available to non-admin users.
+- [OpenSearch Audit API](https://apis.io/apis/opensearch/opensearch-audit-api/) — Audit log configuration.
+- [OpenSearch Cache API](https://apis.io/apis/opensearch/opensearch-cache-api/) — Manage the security cache.
+- [OpenSearch Certificates API](https://apis.io/apis/opensearch/opensearch-certificates-api/) — Inspect SSL certificates loaded by the cluster.
+- [OpenSearch Health API](https://apis.io/apis/opensearch/opensearch-health-api/) — Security plugin health check.
+- [OpenSearch Internal Users API](https://apis.io/apis/opensearch/opensearch-internal-users-api/) — CRUD for internal user database entries.
+- [OpenSearch Nodes DN API](https://apis.io/apis/opensearch/opensearch-nodes-dn-api/) — Allowlisted distinguished names for cross-cluster nodes.
+- [OpenSearch Role Mappings API](https://apis.io/apis/opensearch/opensearch-role-mappings-api/) — Map users, backend roles, and hosts to security roles.
+- [OpenSearch Roles API](https://apis.io/apis/opensearch/opensearch-roles-api/) — CRUD for security roles and their permissions.
+- [OpenSearch Security Config API](https://apis.io/apis/opensearch/opensearch-security-config-api/) — Inspect and update the running security configuration.
+- [OpenSearch SSL Info API](https://apis.io/apis/opensearch/opensearch-ssl-info-api/) — Inspect SSL handshake information for the calling client.
+- [OpenSearch Tenants API](https://apis.io/apis/opensearch/opensearch-tenants-api/) — Multi-tenancy support for OpenSearch Dashboards.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### OpenSearch Security Plugin REST API
+GraphQL schemas.
 
-The Security plugin REST API lets administrators programmatically create and manage internal users, roles, role mappings, action groups, tenants, security configuration, audit log configuration, allowlists, node DN entries, and SSL certificates. Endpoints are exposed under /_plugins/_security/api on the OpenSearch cluster and require authentication.
+- [Moved to /providers/opensearch/](https://apis.io/graphqls/opensearch/opensearch-graphql/)
 
-- **Human URL:** [https://docs.opensearch.org/latest/security/access-control/api/](https://docs.opensearch.org/latest/security/access-control/api/)
-- **Base URL:** `https://{cluster-host}:9200`
+#### MCP servers (1)
 
-#### Tags
+Model Context Protocol servers that expose the API to agents.
 
-- Security
-- Access Control
-- Roles
-- Authentication
+- [MCP Server](https://apis.io/servers/opensearch/mcp-server/)
 
-#### Properties
+#### Agent skills (10)
 
-- [Documentation](https://docs.opensearch.org/latest/security/access-control/api/)
-- [Documentation](https://docs.opensearch.org/latest/security/access-control/index/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/openapi/opensearch-security-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-schema/opensearch-role-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/opensearch/refs/heads/main/json-ld/opensearch-context.jsonld)
-- [Postman Collection](collections/opensearch-security.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/opensearch-security.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Agent skills built on the API.
 
-### OpenSearch Search and Indexing REST API
+- [aoss-nextgen-provisioning](https://apis.io/agent-skills/opensearch/aoss-nextgen-provisioning/)
+- [aws-setup](https://apis.io/agent-skills/opensearch/aws-setup/)
+- [cloud](https://apis.io/agent-skills/opensearch/cloud/)
+- [log-analytics](https://apis.io/agent-skills/opensearch/log-analytics/)
+- [observability](https://apis.io/agent-skills/opensearch/observability/)
+- [opensearch-launchpad](https://apis.io/agent-skills/opensearch/opensearch-launchpad/)
+- [opensearch-skills](https://apis.io/agent-skills/opensearch/opensearch-skills/)
+- [search](https://apis.io/agent-skills/opensearch/search/)
+- [solr-opensearch-migration-advisor](https://apis.io/agent-skills/opensearch/solr-opensearch-migration-advisor/)
+- [trace-analytics](https://apis.io/agent-skills/opensearch/trace-analytics/)
 
-The core OpenSearch REST API for indexing documents, performing search queries (full text, vector, hybrid), aggregations, and managing indices, mappings, templates, aliases, and snapshots.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.opensearch.org/latest/api-reference/](https://docs.opensearch.org/latest/api-reference/)
-- **Base URL:** `https://{cluster-host}:9200`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Opensearch Agentic Access](https://apis.io/agentic-access/opensearch/opensearch-agentic-access/)
 
-- Search
-- Indexing
-- Vector Search
-- Aggregations
+#### JSON Schema (1)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.opensearch.org/latest/api-reference/)
-- [Documentation](https://docs.opensearch.org/latest/search-plugins/)
-- [Reference](https://docs.opensearch.org/latest/api-reference/search/)
-- [Postman Collection](collections/opensearch-security.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/opensearch-security.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [OpenSearch Security Role](https://apis.io/schemas/opensearch/opensearch-role/)
 
-## Common Properties
+#### JSON-LD (1)
 
-- [LinkedIn](https://www.linkedin.com/company/opensearch-project)
+Linked-data contexts for the provider's vocabulary.
+
+- [Opensearch Context](https://apis.io/jsonld/opensearch/opensearch-context/)
+
+#### Collections (15)
+
+Postman and Open Collection request collections.
+
+- [OpenSearch Security Plugin REST Account API](https://apis.io/collections/opensearch/open-opensearch-account-api/)
+- [OpenSearch Security Plugin REST Account Action Groups API](https://apis.io/collections/opensearch/open-opensearch-action-groups-api/)
+- [OpenSearch Security Plugin REST Account Allowlist API](https://apis.io/collections/opensearch/open-opensearch-allowlist-api/)
+- [OpenSearch Security Plugin REST Account Audit API](https://apis.io/collections/opensearch/open-opensearch-audit-api/)
+- [OpenSearch Security Plugin REST Account Cache API](https://apis.io/collections/opensearch/open-opensearch-cache-api/)
+- [OpenSearch Security Plugin REST Account Certificates API](https://apis.io/collections/opensearch/open-opensearch-certificates-api/)
+- [OpenSearch Security Plugin REST Account Health API](https://apis.io/collections/opensearch/open-opensearch-health-api/)
+- [OpenSearch Security Plugin REST Account Internal Users API](https://apis.io/collections/opensearch/open-opensearch-internal-users-api/)
+- [OpenSearch Security Plugin REST Account Nodes DN API](https://apis.io/collections/opensearch/open-opensearch-nodes-dn-api/)
+- [OpenSearch Security Plugin REST Account Role Mappings API](https://apis.io/collections/opensearch/open-opensearch-role-mappings-api/)
+- [OpenSearch Security Plugin REST Account Roles API](https://apis.io/collections/opensearch/open-opensearch-roles-api/)
+- [OpenSearch Security Plugin REST API](https://apis.io/collections/opensearch/open-opensearch-security/)
+- [OpenSearch Security Plugin REST Account Security Config API](https://apis.io/collections/opensearch/open-opensearch-security-config-api/)
+- [OpenSearch Security Plugin REST Account SSL Info API](https://apis.io/collections/opensearch/open-opensearch-ssl-info-api/)
+- [OpenSearch Security Plugin REST Account Tenants API](https://apis.io/collections/opensearch/open-opensearch-tenants-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [OpenSearch — jsonschema rules](https://apis.io/rules/opensearch/opensearch-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Opensearch Authentication](https://apis.io/security/opensearch/opensearch-authentication/)
+- [Opensearch Domain Security](https://apis.io/security/opensearch/opensearch-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Opensearch Plans Pricing](https://apis.io/plans/opensearch/opensearch-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Opensearch Rate Limits](https://apis.io/rate-limits/opensearch/opensearch-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Opensearch Finops](https://apis.io/finops/opensearch/opensearch-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://opensearch.org/)
-- [Portal](https://docs.opensearch.org/)
 - [Documentation](https://docs.opensearch.org/latest/api-reference/)
-- [Getting Started](https://docs.opensearch.org/latest/getting-started/)
-- [Community](https://opensearch.org/community/)
-- [Forum](https://forum.opensearch.org/)
+- [Getting started](https://docs.opensearch.org/latest/getting-started/)
 - [Blog](https://opensearch.org/blog/)
-- [GitHub Organization](https://github.com/opensearch-project)
-- [GitHub Repository](https://github.com/opensearch-project/security)
-- [GitHub Repository](https://github.com/opensearch-project/OpenSearch)
-- [Download](https://opensearch.org/downloads/)
-- [License](https://opensearch.org/license.html)
 - [Security](https://opensearch.org/security)
-- [M C P Server](https://github.com/opensearch-project/opensearch-mcp-server-py)
-- [Agent Skill](https://github.com/opensearch-project/opensearch-agent-skills)
+- [GitHub](https://github.com/opensearch-project)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 49.3 |
+| Contract governance | 9.8 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 54.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 24.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | unknown |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/opensearch/](https://apis.io/providers/opensearch/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OpenSearch: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/opensearch/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
